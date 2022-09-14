@@ -24,7 +24,7 @@ const AuthForm = () => {
 
                     if (!values.password) {
                         errors.password = 'Обязательное поле'
-                    } else if (!/(?=.*[a-z])/g.test(values.password)) {
+                    } else if (!/(?=.*[a-z0-9])/g.test(values.password)) {
                         errors.password = 'Не должен содержать кириллицу'
                     } else if (!/[0-9a-zA-Z!@#$%^&*]{8,}/g.test(values.password)) {
                         errors.password = ' Минимум 8 символов'
