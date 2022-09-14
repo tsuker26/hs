@@ -89,45 +89,6 @@ const AuthForm = () => {
     );
 }
 
-
-// const AuthForm1 = () => {
-//
-//
-//
-//
-//     return (
-//         <form className={styles.form_auth} onSubmit={formik.handleSubmit}>
-//
-//             <div className={`${styles.input_block} ${styles.email_block} `}>
-//                 <label htmlFor="email">Логин</label>
-//                 <MyInput
-//                     id="email"
-//                     name="email"
-//                     type="email"
-//                     onChange={formik.handleChange}
-//                     value={formik.values.email}
-//                 />
-//                 {formik.touched.email&&formik.errors.email&& <div className={styles.error}>Ошибка</div>}
-//             </div>
-//             <div className={`${styles.input_block} ${styles.password_block} `}>
-//                 <label htmlFor="password">Пароль</label>
-//                 <MyInput
-//                     id="password"
-//                     name="password"
-//                     type="password"
-//                     onChange={formik.handleChange}
-//                     value={formik.values.password}
-//                 />
-//                 {formik.touched.password&&formik.errors.password&& <div className={styles.error}>Ошибка</div>}
-//             </div>
-//
-//             <div className={styles.btn_submit}>
-//                 <MyButton type="submit">Войти</MyButton>
-//             </div>
-//         </form>
-//     );
-// };
-
 export default AuthForm;
 
 
