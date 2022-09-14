@@ -1,0 +1,24 @@
+@import './variables';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: center;
+  color: $text-color;
+}
+
+.auth_page {
+  background: url("../assests/IMG_20210312_140957_174 1.jpg") 0/100vw 100vh no-repeat;
+  .content {
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.6);
+  }
+}
