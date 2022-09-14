@@ -4,17 +4,21 @@ import {useFormik} from "formik";
 import styles from './AuthForm.module.scss'
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
+import {useDispatch} from "react-redux";
+import {loginAc} from "../../redux/reducers/authReducer";
 
 const AuthForm = () => {
 
-
+    const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
-        onSubmit: values => {
-            console.log(values);
+        onSubmit: () => {
+            window.localStorage.setItem('auth', 'true')
+            dispatch(loginAc())
+
         }
     })
     return (
