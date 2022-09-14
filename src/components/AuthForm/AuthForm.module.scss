@@ -22,15 +22,27 @@
     line-height: 19px;
   }
 
-  .email_block {
-    margin-top: 32px;
+  .input_block {
+    position: relative;
+
+    &.email_block {
+      margin-top: 32px;
+    }
+
+    &.password_block {
+      margin-top: 24px;
+    }
+
+    .error {
+      position: absolute;
+      color: #EB1717;
+      margin-top: 7px;
+    }
   }
 
-  .password_block {
-    margin-top: 32px;
-  }
 
   .btn_submit {
     margin-top: 32px;
   }
+
 }

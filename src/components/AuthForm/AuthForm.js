@@ -1,5 +1,5 @@
 import React from 'react';
-import {useFormik} from "formik";
+import {Formik} from "formik";
 
 import styles from './AuthForm.module.scss'
 import MyInput from "../UI/MyInput/MyInput";
@@ -8,48 +8,126 @@ import {useDispatch} from "react-redux";
 import {loginAc} from "../../redux/reducers/authReducer";
 
 const AuthForm = () => {
-
     const dispatch = useDispatch()
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        onSubmit: () => {
-            window.localStorage.setItem('auth', 'true')
-            dispatch(loginAc())
-
-        }
-    })
     return (
-        <form className={styles.form_auth} onSubmit={formik.handleSubmit}>
+        <div className={styles.form_auth}>
             <h1>Simple Hotel Check</h1>
-            <div className={styles.email_block}>
-                <label htmlFor="email">Логин</label>
-                <MyInput
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                />
-            </div>
-            <div className={styles.password_block}>
-                <label htmlFor="password">Пароль</label>
-                <MyInput
-                    id="password"
-                    name="password"
-                    type="password"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                />
-            </div>
+            <Formik
+                initialValues={{email: '', password: ''}}
+                validate={values => {
+                    const errors = {};
+                    if (!values.email) {
+                        errors.email = 'Обязательное поле';
+                    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                        errors.email = 'Некорректный адресс почты ';
+                    }
 
-            <div className={styles.btn_submit}>
-                <MyButton type="submit">Войти</MyButton>
-            </div>
-        </form>
+                    if (!values.password) {
+                        errors.password = 'Обязательное поле'
+                    } else if (!/(?=.*[a-z])/g.test(values.password)) {
+                        errors.password = 'Не должен содержать кириллицу'
+                    } else if (!/[0-9a-zA-Z!@#$%^&*]{8,}/g.test(values.password)) {
+                        errors.password = ' Минимум 8 символов'
+                    }
+                    return errors;
+                }}
+                onSubmit={() => {
+                    window.localStorage.setItem('auth', 'true')
+                    dispatch(loginAc())
+                }}
+            >
+                {({
+                      values,
+                      errors,
+                      touched,
+                      handleChange,
+                      handleBlur,
+                      handleSubmit,
+
+                  }) => (
+                    <form onSubmit={handleSubmit}>
+                        <div className={`${styles.input_block} ${styles.email_block} `}>
+                            <label  style={errors.email&& touched.email  &&{color:'red'}}
+                                htmlFor="email">Логин</label>
+                            <MyInput
+                                style={errors.email&& touched.email  &&{color:'red'}}
+                                name="email"
+                                type="email"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                value={values.email}
+                            />
+                            <div className={styles.error}>
+                                {errors.email && touched.email && errors.email}
+                            </div>
+                        </div>
+                        <div className={`${styles.input_block} ${styles.password_block} `}>
+                            <label style={errors.password&& touched.password  &&{color:'red'}}
+                                htmlFor="password">Пароль</label>
+                            <MyInput
+                                style={errors.password&& touched.password  &&{color:'red'}}
+                                name="password"
+                                type="password"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                value={values.password}
+                            />
+                            <div className={styles.error}>
+                                {errors.password && touched.password && errors.password}
+                            </div>
+                        </div>
+
+                        <div className={styles.btn_submit}>
+                            <MyButton type="submit">
+                                Войти
+                            </MyButton>
+                        </div>
+                    </form>
+                )}
+            </Formik>
+        </div>
     );
-};
+}
+
+
+// const AuthForm1 = () => {
+//
+//
+//
+//
+//     return (
+//         <form className={styles.form_auth} onSubmit={formik.handleSubmit}>
+//
+//             <div className={`${styles.input_block} ${styles.email_block} `}>
+//                 <label htmlFor="email">Логин</label>
+//                 <MyInput
+//                     id="email"
+//                     name="email"
+//                     type="email"
+//                     onChange={formik.handleChange}
+//                     value={formik.values.email}
+//                 />
+//                 {formik.touched.email&&formik.errors.email&& <div className={styles.error}>Ошибка</div>}
+//             </div>
+//             <div className={`${styles.input_block} ${styles.password_block} `}>
+//                 <label htmlFor="password">Пароль</label>
+//                 <MyInput
+//                     id="password"
+//                     name="password"
+//                     type="password"
+//                     onChange={formik.handleChange}
+//                     value={formik.values.password}
+//                 />
+//                 {formik.touched.password&&formik.errors.password&& <div className={styles.error}>Ошибка</div>}
+//             </div>
+//
+//             <div className={styles.btn_submit}>
+//                 <MyButton type="submit">Войти</MyButton>
+//             </div>
+//         </form>
+//     );
+// };
 
 export default AuthForm;
+
+
