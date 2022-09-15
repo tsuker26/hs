@@ -3,6 +3,8 @@
 
 .favorites_block {
   grid-area: C;
+  min-height: 472px;
+  margin-bottom: 30px;
 
   .filter {
     display: flex;
