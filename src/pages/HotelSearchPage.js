@@ -1,16 +1,13 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
-import {logOutAc} from "../redux/reducers/authReducer";
+import HotelSearch from "../components/HotelSearch/HotelSearch";
+import Header from "../components/Header/Header";
 
 const HotelSearchPage = () => {
-    const dispatch = useDispatch()
-    const logOut = () => {
-        dispatch(logOutAc())
-        window.localStorage.removeItem('auth')
-    }
+
     return (
-        <div onClick={logOut}>
-            Hotel Search
+        <div className={'hotel_search_page'}>
+            <Header/>
+            <HotelSearch/>
         </div>
     );
 };

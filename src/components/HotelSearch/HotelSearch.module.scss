@@ -1,0 +1,56 @@
+.hotel_search_block {
+  display: grid;
+  grid-template-columns: 364px auto;
+  grid-template-areas:  ' A B '
+                        ' C B ';
+  gap: 24px;
+  position: absolute;
+  width: 1048px;
+  left: calc(50% - 1048px / 2 + 12px);
+  top: 92px;
+
+
+  .block {
+    box-shadow: 0 4px 33px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    background-color: #FFFF;
+    padding: 32px;
+
+    &.search_block {
+      grid-area: A;
+
+      .location {
+
+      }
+
+      .date {
+        margin-top: 16px
+      }
+
+      .count_day {
+        margin-top: 20px;
+      }
+
+      .btn {
+        margin-top: 32px;
+      }
+
+      label {
+        font-weight: 500;
+      }
+
+    }
+
+    &.favorites_block {
+      grid-area: C;
+
+    }
+
+    &.hotels_block {
+      grid-area: B;
+
+    }
+  }
+
+
+}
