@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './HotelSearch.module.scss'
-import FavoritesBlock from "./FavoritesBlock";
-import SearchBlock from "./SearchBlock";
-import HotelsBlock from "./HotelsBlock";
+import FavoritesBlock from "./FavotitesBlock/FavoritesBlock";
+import SearchBlock from "./SearchBlock/SearchBlock";
+import HotelsBlock from "./Hotelsblock/HotelsBlock";
 
 const HotelSearch = () => {
     return (

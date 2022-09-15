@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from "./HotelSearch.module.scss";
-import MyInput from "../UI/MyInput/MyInput";
-import MyButton from "../UI/MyButton/MyButton";
+import styles from "./SearchBlock.module.scss";
+import s from'../HotelSearch.module.scss'
+import MyInput from "../../UI/MyInput/MyInput";
+import MyButton from "../../UI/MyButton/MyButton";
 import {useFormik} from "formik";
 
 const SearchBlock = () => {
@@ -18,9 +19,9 @@ const SearchBlock = () => {
     })
 
     return (
-        <div className={`${styles.search_block} ${styles.block}`}>
+        <div className={`${styles.search_block} ${s.block}`}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={styles.location}>
+                <div >
                     <label htmlFor="location">Локация</label>
                     <MyInput
                         type="text"
