@@ -46,8 +46,9 @@
     }
 
   }
-  .favorite_hotel{
 
+  &.favorite_hotel {
+    animation: add 1s forwards;
   }
 
   &:last-child {
@@ -67,12 +68,14 @@
       stroke: #C4C4C4;
       stroke-linecap: round;
       stroke-linejoin: round;
-      &.active{
+
+      &.active {
         fill: #E55858;
         stroke: none;
 
       }
-      &:hover{
+
+      &:hover {
         fill: #EBEBEB;
       }
     }
@@ -119,4 +122,14 @@
 
   }
 
+}
+
+
+@keyframes add {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

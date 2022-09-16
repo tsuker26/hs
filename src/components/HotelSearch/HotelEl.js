@@ -7,6 +7,7 @@ import {addFavoritesAC, removeFavoritesAC} from "../../redux/reducers/hotelsRedu
 
 const HotelEl = ({hotel, allHotel}) => {
     const {favoritesHotels} = useSelector(state => state?.hotels)
+    const {countDay,date} = useSelector(state => state?.search)
     const dispatch = useDispatch()
     const favorite = favoritesHotels.find(f => f.id === hotel.id)
     const addRemoveHandler = (hotel) => {
@@ -21,7 +22,7 @@ const HotelEl = ({hotel, allHotel}) => {
             }
             <div className={styles.info_hotel}>
                 <div className={styles.name}>
-                    <h2>{hotel.fullName}</h2>
+                    <h2>{hotel.label}</h2>
                     <svg className={favorite ? styles.active : ''} onClick={() => addRemoveHandler(hotel)} width="21"
                          height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.3807 1.59133C18.8676
@@ -41,7 +42,7 @@ const HotelEl = ({hotel, allHotel}) => {
                     </svg>
                 </div>
                 <div className={styles.date}>
-                    <p>7 июля 2020 - 1 день </p>
+                    <p>{date} - {countDay} </p>
                 </div>
 
                 <div className={styles.data_hotel}>

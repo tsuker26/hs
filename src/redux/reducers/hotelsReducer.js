@@ -23,6 +23,6 @@ export default function hotelsReducer(state = defaultState, {type, payload}) {
 
 
 export const setHotelsAc = (payload) => ({type: SET_HOTELS, payload})
-export const getHotelsAc = () => ({type: GET_HOTELS})
+export const getHotelsAc = (payload) => ({type: GET_HOTELS,payload})
 export const addFavoritesAC = (payload) => ({type: ADD_FAVORITES, payload})
 export const removeFavoritesAC = (payload) => ({type: REMOVE_FAVORITES, payload})

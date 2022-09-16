@@ -1,27 +1,36 @@
 import React from 'react';
 import styles from "./SearchBlock.module.scss";
-import s from'../HotelSearch.module.scss'
+import s from '../HotelSearch.module.scss'
 import MyInput from "../../UI/MyInput/MyInput";
 import MyButton from "../../UI/MyButton/MyButton";
 import {useFormik} from "formik";
+import {useDispatch, useSelector} from "react-redux";
+import {changeAc} from "../../../redux/reducers/searchReducer";
+import {getHotelsAc} from "../../../redux/reducers/hotelsReducer";
 
 const SearchBlock = () => {
+    const {location, date, countDay} = useSelector(state => state.search)
+    const dispatch = useDispatch()
+    const find = (values)=>{
+        dispatch(getHotelsAc(values.location))
+        dispatch(changeAc(values))
+    }
 
     const formik = useFormik({
-        initialValues:{
-            location:'Москва',
-            date:new Date().toISOString().split('T')[0],
-            countDay:'1'
+        initialValues: {
+            location,
+            date,
+            countDay
         },
-        onSubmit:values => {
-            console.log(values.date)
+        onSubmit: values => {
+           find(values)
         }
     })
 
     return (
         <div className={`${styles.search_block} ${s.block}`}>
             <form onSubmit={formik.handleSubmit}>
-                <div >
+                <div>
                     <label htmlFor="location">Локация</label>
                     <MyInput
                         type="text"
@@ -49,7 +58,7 @@ const SearchBlock = () => {
                         value={formik.values.countDay}/>
                 </div>
                 <div className={styles.btn}>
-                    <MyButton>Найти</MyButton>
+                    <MyButton type={'submit'}>Найти</MyButton>
                 </div>
             </form>
         </div>
