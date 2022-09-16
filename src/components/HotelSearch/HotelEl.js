@@ -3,7 +3,7 @@ import styles from './HotelSearch.module.scss'
 import stars from '../../assests/stars.png'
 import house from "../../assests/house.png";
 
-const HotelEl = ({name,allHotel }) => {
+const HotelEl = ({hotel,allHotel }) => {
     return (
         <div className={`${styles.hotel_block} ${allHotel?styles.all_hotel:''}`}>
             {allHotel && <div className={styles.img}>
@@ -12,7 +12,7 @@ const HotelEl = ({name,allHotel }) => {
             }
                 <div className={styles.info_hotel}>
                     <div className={styles.name}>
-                        <h2>{name}</h2>
+                        <h2>{hotel.fullName}</h2>
                         <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.3807 1.59133C18.8676
                 1.08683 18.2583 0.686629 17.5878

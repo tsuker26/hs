@@ -1,16 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./HotelsBlock.module.scss";
 import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
 import Carousel from "./Carousel";
 import HotelEl from "../HotelEl";
+import {useSelector} from "react-redux";
 
 
 const HotelsBlock = () => {
-    const [hotels] =
-        useState(
-            ['Moscow Marriott Grand Hotel','Moscow Marriott Grand Hotel', 'Moscow Marriott Grand Hotel', 'Moscow Marriott Grand Hotel',  'Moscow Marriott Grand Hotel', 'Moscow Marriott Grand Hotel', 'Moscow Marriott Grand Hotel', 'Moscow Marriott Grand Hotel'])
+    const {allHotels} = useSelector(state => state?.hotels)
+    console.log(allHotels);
+
     return (
+
         <div className={`${styles.hotels_block} ${s.block}`}>
             <div className={styles.info}>
                 <span>Отели<img src={arrow} alt=""/>Москва</span>
@@ -20,11 +22,14 @@ const HotelsBlock = () => {
             <div className={styles.add_count}>
                 <p>Добавлено в Избранное: <span>3</span> отеля</p>
             </div>
-           <div className={styles.hotels}>
-               {hotels.map(h=><HotelEl allHotel={true} name={h}/>)}
-           </div>
+            <div className={styles.hotels_items}>
+                {allHotels.map(hotel => <HotelEl key={hotel.id}
+                                              allHotel={true}
+                                              hotel={hotel}/>)}
+            </div>
 
         </div>
+
     );
 };
 
