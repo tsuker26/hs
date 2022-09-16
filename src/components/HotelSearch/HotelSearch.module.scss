@@ -46,6 +46,9 @@
     }
 
   }
+  .favorite_hotel{
+
+  }
 
   &:last-child {
     border: 0;
@@ -60,6 +63,18 @@
 
     svg {
       cursor: pointer;
+      fill: #FFFF;
+      stroke: #C4C4C4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      &.active{
+        fill: #E55858;
+        stroke: none;
+
+      }
+      &:hover{
+        fill: #EBEBEB;
+      }
     }
   }
 

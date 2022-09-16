@@ -5,7 +5,7 @@ import {GET_HOTELS, setHotelsAc} from "../reducers/hotelsReducer";
 
 function* hotelsWorker() {
     try {
-        const {results} = yield call(getHotels, 'Москва');
+        const {results} = yield call(getHotels, 'Пятигорск');
         yield put(setHotelsAc(results.hotels))
     } catch (e) {
         console.log(e)

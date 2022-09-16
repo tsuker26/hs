@@ -17,7 +17,7 @@ const FavoritesBlock = () => {
                 <>
                     <Filter/>
                     <div className={styles.favorites}>
-                        {favoritesHotels?.map(hotel => <HotelEl hotel={hotel}/>)}
+                        {favoritesHotels?.map(hotel => <HotelEl key={hotel.id} hotel={hotel}/>)}
                     </div>
                 </>
                 : ""}

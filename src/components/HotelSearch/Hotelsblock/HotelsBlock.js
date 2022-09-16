@@ -8,9 +8,7 @@ import {useSelector} from "react-redux";
 
 
 const HotelsBlock = () => {
-    const {allHotels} = useSelector(state => state?.hotels)
-    console.log(allHotels);
-
+    const {allHotels,favoritesHotels} = useSelector(state => state?.hotels)
     return (
 
         <div className={`${styles.hotels_block} ${s.block}`}>
@@ -20,7 +18,7 @@ const HotelsBlock = () => {
             </div>
             <Carousel/>
             <div className={styles.add_count}>
-                <p>Добавлено в Избранное: <span>3</span> отеля</p>
+                <p>Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля</p>
             </div>
             <div className={styles.hotels_items}>
                 {allHotels.map(hotel => <HotelEl key={hotel.id}

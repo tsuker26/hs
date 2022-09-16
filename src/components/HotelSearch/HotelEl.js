@@ -2,19 +2,29 @@ import React from 'react';
 import styles from './HotelSearch.module.scss'
 import stars from '../../assests/stars.png'
 import house from "../../assests/house.png";
+import {useDispatch, useSelector} from "react-redux";
+import {addFavoritesAC, removeFavoritesAC} from "../../redux/reducers/hotelsReducer";
 
-const HotelEl = ({hotel,allHotel }) => {
+const HotelEl = ({hotel, allHotel}) => {
+    const {favoritesHotels} = useSelector(state => state?.hotels)
+    const dispatch = useDispatch()
+    const favorite = favoritesHotels.find(f => f.id === hotel.id)
+    const addRemoveHandler = (hotel) => {
+        if (favorite) dispatch(removeFavoritesAC(hotel.id))
+        else dispatch(addFavoritesAC(hotel))
+    }
     return (
-        <div className={`${styles.hotel_block} ${allHotel?styles.all_hotel:''}`}>
+        <div className={`${styles.hotel_block} ${allHotel ? styles.all_hotel : styles.favorite_hotel}`}>
             {allHotel && <div className={styles.img}>
                 <img src={house} alt=""/>
             </div>
             }
-                <div className={styles.info_hotel}>
-                    <div className={styles.name}>
-                        <h2>{hotel.fullName}</h2>
-                        <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3807 1.59133C18.8676
+            <div className={styles.info_hotel}>
+                <div className={styles.name}>
+                    <h2>{hotel.fullName}</h2>
+                    <svg className={favorite ? styles.active : ''} onClick={() => addRemoveHandler(hotel)} width="21"
+                         height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3807 1.59133C18.8676
                 1.08683 18.2583 0.686629 17.5878
                 0.413583C16.9172 0.140537 16.1985
                 0 15.4727 0C14.7468 0 14.0281 0.140537
@@ -27,20 +37,20 @@ const HotelEl = ({hotel,allHotel }) => {
                 9.2724L2.68367 10.3189L10.4997 18L18.3158 10.3189L19.3807
                 9.2724C19.8941 8.76814 20.3013 8.16942 20.5791 7.51045C20.857
                 6.85148 21 6.14517 21 5.43187C21 4.71857 20.857 4.01225 20.5791
-                3.35328C20.3013 2.69431 19.8941 2.09559 19.3807 1.59133Z" fill="#E55858"/>
-                        </svg>
-                    </div>
-                    <div className={styles.date}>
-                        <p>7 июля 2020 - 1 день </p>
-                    </div>
+                3.35328C20.3013 2.69431 19.8941 2.09559 19.3807 1.59133Z"/>
+                    </svg>
+                </div>
+                <div className={styles.date}>
+                    <p>7 июля 2020 - 1 день </p>
+                </div>
 
-                    <div className={styles.data_hotel}>
-                        <img src={stars} alt=""/>
-                        <div className={styles.price}>
-                            <p>Price:</p><span>23 924 ₽</span>
-                        </div>
+                <div className={styles.data_hotel}>
+                    <img src={stars} alt=""/>
+                    <div className={styles.price}>
+                        <p>Price:</p><span>23 924 ₽</span>
                     </div>
                 </div>
+            </div>
 
         </div>
     );
