@@ -3,11 +3,12 @@ import styles from "./FavoritesBlock.module.scss";
 import SelectEl from "./SelectEl";
 
 const Filter = () => {
-    const filterItems = [{id: 0, name: 'Рейтинг'}, {id: 1, name: 'Цена'}]
+
+    const filterItems = [{sort:'stars',name:'Рейтинг'}, {sort:'priceAvg',name:'Цена'}]
     return (
         <div className={styles.filter}>
             {
-                filterItems.map(filter => <SelectEl key={filter.id}
+                filterItems.map(filter => <SelectEl key={filter.sort}
                                                     filter={filter}/>)
             }
         </div>

@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from "./FavoritesBlock.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {setArrowIdAc} from "../../../redux/reducers/filterReducer";
+import {setArrowNameAc} from "../../../redux/reducers/filterReducer";
 
 const ArrowEl = ({arrow, filter}) => {
-    const {filterId, arrowId} = useSelector(state => state.filter)
+    const {filterName, arrowName} = useSelector(state => state.filter)
     const dispatch = useDispatch()
     return (
         <>
-            {arrow.name === 'up'
-                ? <svg  onClick={() => dispatch(setArrowIdAc(arrow.id))}
-                       className={filter.id === filterId && arrow.id === arrowId ? styles.arrow_active : ''} width="9"
+            {arrow === 'ASC'
+                ? <svg  onClick={() => dispatch(setArrowNameAc(arrow))}
+                       className={filter.sort=== filterName && arrow === arrowName ? styles.arrow_active : ''} width="9"
                        height="6"
                        viewBox="0 0 9 6" fill="none"
                        xmlns="http://www.w3.org/2000/svg">
@@ -19,8 +19,8 @@ const ArrowEl = ({arrow, filter}) => {
                             5.3033L0.0147181 4.24264L4.25736
                             0L8.5 4.24264Z" fill="#41522E"/>
                 </svg>
-                : <svg onClick={() => dispatch(setArrowIdAc(arrow.id))}
-                       className={filter.id === filterId && arrow.id === arrowId ? styles.arrow_active : ''} width="9"
+                : <svg onClick={() => dispatch(setArrowNameAc(arrow))}
+                       className={filter.sort === filterName && arrow === arrowName ? styles.arrow_active : ''} width="9"
                        height="7"
                        viewBox="0 0 9 7" fill="none"
                        xmlns="http://www.w3.org/2000/svg">

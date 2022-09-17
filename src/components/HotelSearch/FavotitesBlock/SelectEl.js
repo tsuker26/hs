@@ -2,19 +2,19 @@ import React from 'react';
 import styles from "./FavoritesBlock.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import ArrowEl from "./ArrowEl";
-import {setFilterIdAc} from "../../../redux/reducers/filterReducer";
+import {setFilterNameAc} from "../../../redux/reducers/filterReducer";
 
 const SelectEl = ({filter}) => {
-    const {filterId} = useSelector(state => state.filter)
+    const {filterName} = useSelector(state => state.filter)
     const dispatch = useDispatch()
-    const arrowItems = [{id: 0, name: 'up'}, {id: 1, name: 'down'}]
+    const arrowItems = [ 'ASC', 'DESC']
 
     return (
-        <div onClick={() => dispatch(setFilterIdAc(filter.id))}
-             className={`${styles.select} ${filter.id === filterId ? styles.active : ''}`}>
+        <div onClick={() => dispatch(setFilterNameAc(filter.sort))}
+             className={`${styles.select} ${filter.sort === filterName ? styles.active : ''}`}>
             <span>{filter.name}</span>
             <div className={styles.arrow}>
-                {arrowItems.map(arrow => <ArrowEl key={arrow.id}
+                {arrowItems.map(arrow => <ArrowEl key={arrow}
                                                   arrow={arrow}
                                                   filter={filter}/>)}
             </div>
