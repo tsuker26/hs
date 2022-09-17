@@ -14,8 +14,8 @@ const FavoritesBlock = ({dateFormat}) => {
         const favoritesHotelsSort = useMemo(() => {
             return [...favoritesHotels]
                 .sort((a, b) => arrowName === 'ASC'
-                    ? a[filterName] > b[filterName] ? 1
-                    : -1 : a[filterName] > b[filterName] ? -1 : 1)
+                    ? a[filterName] > b[filterName] ? 1 : -1
+                    : a[filterName] > b[filterName] ? -1 : 1)
         }, [favoritesHotels, filterName, arrowName])
 
         return (

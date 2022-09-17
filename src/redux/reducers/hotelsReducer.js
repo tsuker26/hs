@@ -1,6 +1,7 @@
 const defaultState = {
     allHotels: [],
     favoritesHotels: [],
+    carouselImg:[1,2,3,3]
 }
 const ADD_FAVORITES = 'ADD_FAVORITES'
 const REMOVE_FAVORITES = 'REMOVE_FAVORITES'
