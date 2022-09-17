@@ -5,18 +5,19 @@ import house from "../../assests/house.png";
 import {useDispatch, useSelector} from "react-redux";
 import {addFavoritesAC, removeFavoritesAC} from "../../redux/reducers/hotelsReducer";
 
-const HotelEl = ({hotel, allHotel}) => {
+const HotelEl = ({hotel, allHotels,dateFormat}) => {
     const {favoritesHotels} = useSelector(state => state?.hotels)
-    const {countDay,date} = useSelector(state => state?.search)
+    const {countDay} = useSelector(state => state?.search)
     const dispatch = useDispatch()
     const favorite = favoritesHotels.find(f => f.id === hotel.id)
     const addRemoveHandler = (hotel) => {
         if (favorite) dispatch(removeFavoritesAC(hotel.id))
         else dispatch(addFavoritesAC(hotel))
+
     }
     return (
-        <div className={`${styles.hotel_block} ${allHotel ? styles.all_hotel : styles.favorite_hotel}`}>
-            {allHotel && <div className={styles.img}>
+        <div className={`${styles.hotel_block} ${allHotels ? styles.all_hotel : styles.favorite_hotel}`}>
+            {allHotels && <div className={styles.img}>
                 <img src={house} alt=""/>
             </div>
             }
@@ -42,7 +43,7 @@ const HotelEl = ({hotel, allHotel}) => {
                     </svg>
                 </div>
                 <div className={styles.date}>
-                    <p>{date} - {countDay} </p>
+                    <p>{dateFormat} - {countDay} день </p>
                 </div>
 
                 <div className={styles.data_hotel}>
@@ -58,3 +59,5 @@ const HotelEl = ({hotel, allHotel}) => {
 };
 
 export default HotelEl;
+
+

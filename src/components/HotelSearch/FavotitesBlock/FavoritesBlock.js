@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 import HotelEl from "../HotelEl";
 
 
-const FavoritesBlock = () => {
+const FavoritesBlock = ({dateFormat}) => {
 
     const {favoritesHotels} = useSelector(state => state?.hotels)
 
@@ -17,10 +17,13 @@ const FavoritesBlock = () => {
                 <>
                     <Filter/>
                     <div className={styles.favorites}>
-                        {favoritesHotels?.map(hotel => <HotelEl key={hotel.id} hotel={hotel}/>)}
+                        {favoritesHotels?.map(hotel => <HotelEl key={hotel.id}
+                                                                hotel={hotel}
+                                                                allHotels={false}
+                                                                dateFormat={dateFormat}/>)}
                     </div>
                 </>
-                : ""}
+                : <h1 style={{marginTop: '20px'}}>У вас нет избранных отелей</h1>}
         </div>
     );
 };

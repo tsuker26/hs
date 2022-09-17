@@ -7,16 +7,16 @@ import HotelEl from "../HotelEl";
 import {useSelector} from "react-redux";
 
 
-const HotelsBlock = () => {
-    const {allHotels,favoritesHotels} = useSelector(state => state?.hotels)
-    const {location,date} = useSelector(state => state?.search)
+const HotelsBlock = ({dateFormat}) => {
+    const {allHotels, favoritesHotels} = useSelector(state => state?.hotels)
+    const {location} = useSelector(state => state?.search)
 
     return (
 
         <div className={`${styles.hotels_block} ${s.block}`}>
             <div className={styles.info}>
                 <span>Отели<img src={arrow} alt=""/>{location}</span>
-                <span className={styles.date}>{date}</span>
+                <span className={styles.date}>{dateFormat}</span>
             </div>
             <Carousel/>
             <div className={styles.add_count}>
@@ -24,8 +24,9 @@ const HotelsBlock = () => {
             </div>
             <div className={styles.hotels_items}>
                 {allHotels.map(hotel => <HotelEl key={hotel.id}
-                                              allHotel={true}
-                                              hotel={hotel}/>)}
+                                                 allHotels={true}
+                                                 hotel={hotel}
+                                                 dateFormat={dateFormat}/>)}
             </div>
 
         </div>
