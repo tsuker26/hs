@@ -7,16 +7,21 @@ import {getHotelsAc} from "../redux/reducers/hotelsReducer";
 
 const HotelSearchPage = () => {
     const dispatch = useDispatch()
-    const {location} = useSelector(state => state.search)
+    const {location, date, countDay} = useSelector(state => state.search)
+    const setDay= new Date(date).setDate(new Date(date).getDate() + +countDay)
+    const dateOut  = new Date(setDay).toISOString().split('T')[0]
+
     useEffect(() => {
-        dispatch(getHotelsAc(location))
+        dispatch(getHotelsAc({location, date, dateOut}))
     }, [])
     return (
         <div className={'hotel_search_page'}>
             <Header/>
-            <HotelSearch/>
+            <HotelSearch dateOut={dateOut}/>
         </div>
     );
 };
 
 export default HotelSearchPage;
+
+

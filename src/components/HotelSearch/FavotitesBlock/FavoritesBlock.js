@@ -17,7 +17,7 @@ const FavoritesBlock = ({dateFormat}) => {
                 <>
                     <Filter/>
                     <div className={styles.favorites}>
-                        {favoritesHotels?.map(hotel => <HotelEl key={hotel.id}
+                        {favoritesHotels?.map(hotel => <HotelEl key={hotel.hotelId}
                                                                 hotel={hotel}
                                                                 allHotels={false}
                                                                 dateFormat={dateFormat}/>)}

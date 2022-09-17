@@ -15,7 +15,7 @@ export default function hotelsReducer(state = defaultState, {type, payload}) {
         case ADD_FAVORITES:
             return {...state, favoritesHotels: [...state.favoritesHotels, payload]}
         case REMOVE_FAVORITES:
-            return {...state, favoritesHotels: [...state.favoritesHotels.filter(f => f.id !== payload)]}
+            return {...state, favoritesHotels: [...state.favoritesHotels.filter(f => f.hotelId !== payload)]}
         default:
             return state
     }

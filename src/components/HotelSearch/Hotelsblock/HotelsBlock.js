@@ -9,13 +9,13 @@ import {useSelector} from "react-redux";
 
 const HotelsBlock = ({dateFormat}) => {
     const {allHotels, favoritesHotels} = useSelector(state => state?.hotels)
-    const {location} = useSelector(state => state?.search)
+    const {info} = useSelector(state => state?.search)
 
     return (
 
         <div className={`${styles.hotels_block} ${s.block}`}>
             <div className={styles.info}>
-                <span>Отели<img src={arrow} alt=""/>{location}</span>
+                <span>Отели<img src={arrow} alt=""/>{info.location}</span>
                 <span className={styles.date}>{dateFormat}</span>
             </div>
             <Carousel/>
@@ -23,7 +23,7 @@ const HotelsBlock = ({dateFormat}) => {
                 <p>Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля</p>
             </div>
             <div className={styles.hotels_items}>
-                {allHotels.map(hotel => <HotelEl key={hotel.id}
+                {allHotels.map(hotel => <HotelEl key={hotel.hotelId}
                                                  allHotels={true}
                                                  hotel={hotel}
                                                  dateFormat={dateFormat}/>)}

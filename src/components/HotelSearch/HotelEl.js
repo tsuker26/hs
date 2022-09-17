@@ -5,13 +5,13 @@ import house from "../../assests/house.png";
 import {useDispatch, useSelector} from "react-redux";
 import {addFavoritesAC, removeFavoritesAC} from "../../redux/reducers/hotelsReducer";
 
-const HotelEl = ({hotel, allHotels,dateFormat}) => {
+const HotelEl = ({hotel, allHotels, dateFormat}) => {
     const {favoritesHotels} = useSelector(state => state?.hotels)
-    const {countDay} = useSelector(state => state?.search)
+    const {info} = useSelector(state => state?.search)
     const dispatch = useDispatch()
-    const favorite = favoritesHotels.find(f => f.id === hotel.id)
+    const favorite = favoritesHotels.find(f => f.hotelId === hotel.hotelId)
     const addRemoveHandler = (hotel) => {
-        if (favorite) dispatch(removeFavoritesAC(hotel.id))
+        if (favorite) dispatch(removeFavoritesAC(hotel.hotelId))
         else dispatch(addFavoritesAC(hotel))
 
     }
@@ -23,7 +23,7 @@ const HotelEl = ({hotel, allHotels,dateFormat}) => {
             }
             <div className={styles.info_hotel}>
                 <div className={styles.name}>
-                    <h2>{hotel.label}</h2>
+                    <h2>{hotel.hotelName}</h2>
                     <svg className={favorite ? styles.active : ''} onClick={() => addRemoveHandler(hotel)} width="21"
                          height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.3807 1.59133C18.8676
@@ -43,13 +43,13 @@ const HotelEl = ({hotel, allHotels,dateFormat}) => {
                     </svg>
                 </div>
                 <div className={styles.date}>
-                    <p>{dateFormat} - {countDay} день </p>
+                    <p>{dateFormat} - {info.countDay} день </p>
                 </div>
 
                 <div className={styles.data_hotel}>
                     <img src={stars} alt=""/>
                     <div className={styles.price}>
-                        <p>Price:</p><span>23 924 ₽</span>
+                        <p>Price:</p><span>{hotel.priceAvg.toFixed(0) } ₽</span>
                     </div>
                 </div>
             </div>
