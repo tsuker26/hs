@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './HotelSearch.module.scss'
-import stars from '../../assests/stars.png'
 import house from "../../assests/house.png";
 import {useDispatch, useSelector} from "react-redux";
 import {addFavoritesAC, removeFavoritesAC} from "../../redux/reducers/hotelsReducer";
+import Stars from "./Stars";
 
 const HotelEl = ({hotel, allHotels, dateFormat}) => {
     const {favoritesHotels} = useSelector(state => state?.hotels)
@@ -47,9 +47,9 @@ const HotelEl = ({hotel, allHotels, dateFormat}) => {
                 </div>
 
                 <div className={styles.data_hotel}>
-                    <img src={stars} alt=""/>
+                    <Stars stars={hotel.stars}/>
                     <div className={styles.price}>
-                        <p>Price:</p><span>{hotel.priceAvg.toFixed(0) } ₽</span>
+                        <p>Price:</p><span>{hotel.priceAvg.toFixed(0)} ₽</span>
                     </div>
                 </div>
             </div>

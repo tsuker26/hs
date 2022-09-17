@@ -98,10 +98,12 @@
     margin-top: 10px;
     margin-bottom: 15px;
 
-    img {
+    .stars {
+      display: flex;
       width: 99px;
       height: 17px;
     }
+
 
     .price {
       display: flex;
