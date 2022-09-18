@@ -8,9 +8,8 @@ import {useSelector} from "react-redux";
 
 
 const HotelsBlock = ({dateFormat}) => {
-    const {allHotels, favoritesHotels,carouselImg} = useSelector(state => state?.hotels)
+    const {allHotels, favoritesHotels, carouselImg} = useSelector(state => state?.hotels)
     const {info} = useSelector(state => state?.search)
-
     return (
         <div className={`${styles.hotels_block} ${s.block}`}>
             <div className={styles.info}>
@@ -19,7 +18,7 @@ const HotelsBlock = ({dateFormat}) => {
             </div>
             <div className={styles.carousel}>
                 <div className={styles.carousel_inner}>
-                    {carouselImg.map((img,i)=><CarouselEL key = {i} img={img}/>)}
+                    {carouselImg.map((img, i) => <CarouselEL key={i} img={img}/>)}
                 </div>
             </div>
             <div className={styles.add_count}>

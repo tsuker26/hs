@@ -6,6 +6,7 @@
   min-height: 472px;
   margin-bottom: 30px;
 
+
   .filter {
     display: flex;
     gap: 8px;
@@ -20,7 +21,7 @@
       cursor: pointer;
 
       &.active {
-        border: 1px solid #41522E;
+        border: 1px solid $green;
 
         span {
           color: $text-color;
@@ -54,6 +55,11 @@
 
   .favorites {
     margin-top: 32px;
+    height: 330px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
 
   }
 }

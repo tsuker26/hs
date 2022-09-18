@@ -14,4 +14,11 @@ input {
   line-height: 20px;
   color: $text-color;
 
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    color: transparent;
+    opacity: 1;
+    background: url('../../../assests/calendar-today.png');
+    background-size: contain;
+  }
 }

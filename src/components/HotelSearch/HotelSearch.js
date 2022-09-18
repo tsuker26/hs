@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HotelSearch.module.scss'
 import FavoritesBlock from "./FavotitesBlock/FavoritesBlock";
 import SearchBlock from "./SearchBlock/SearchBlock";
-import HotelsBlock from "./Hotelsblock/HotelsBlock";
+import HotelsBlock from "./HotelsBlock/HotelsBlock";
 import {useSelector} from "react-redux";
 
 const HotelSearch = ({dateOut}) => {
