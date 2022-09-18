@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 export const getHotels = async (city,checkIn,checkOut) => {
     const {data} = await
         axios

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Formik} from "formik";
+import {useDispatch} from "react-redux";
 
 import styles from './AuthForm.module.scss'
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
-import {useDispatch} from "react-redux";
 import {loginAc} from "../../redux/reducers/authReducer";
 
 const AuthForm = () => {
