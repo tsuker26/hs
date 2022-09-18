@@ -1,7 +1,7 @@
 const defaultState = {
-    location: 'Москва',
-    date: new Date().toISOString().split('T')[0],
-    countDay: '1',
+    locationInput: 'Москва',
+    dateInput: new Date().toISOString().split('T')[0],
+    countDayInput: '1',
     info: {
         location: 'Москва',
         date: new Date().toISOString().split('T')[0],
@@ -18,11 +18,11 @@ const CHANGE_INFO = 'CHANGE_INFO'
 export default function searchReducer(state = defaultState, {type, payload}) {
     switch (type) {
         case CHANGE_LOCATION:
-            return {...state, location: payload, date: state.date, countDay: state.countDay}
+            return {...state, locationInput: payload}
         case CHANGE_DATE:
-            return {...state, date: payload}
+            return {...state, dateInput: payload}
         case CHANGE_COUNT_DAY :
-            return {...state, countDay: payload}
+            return {...state, countDayInput: payload}
         case CHANGE_INFO :
             return {...state, info: payload}
         default:

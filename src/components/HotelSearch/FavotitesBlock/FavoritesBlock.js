@@ -11,6 +11,7 @@ const FavoritesBlock = ({dateFormat}) => {
         const {favoritesHotels} = useSelector(state => state?.hotels)
         const {filterName, arrowName} = useSelector(state => state?.filter)
 
+
         const favoritesHotelsSort = useMemo(() => {
             return [...favoritesHotels]
                 .sort((a, b) => arrowName === 'ASC'
