@@ -1,7 +1,7 @@
 const defaultState = {
     allHotels: [],
     favoritesHotels: [],
-    carouselImg:[1,2,3,3]
+    carouselImg: ['1.png', '2.png', '3.png', '3.png']
 }
 const ADD_FAVORITES = 'ADD_FAVORITES'
 const REMOVE_FAVORITES = 'REMOVE_FAVORITES'
@@ -24,6 +24,6 @@ export default function hotelsReducer(state = defaultState, {type, payload}) {
 
 
 export const setHotelsAc = (payload) => ({type: SET_HOTELS, payload})
-export const getHotelsAc = (payload) => ({type: GET_HOTELS,payload})
+export const getHotelsAc = (payload) => ({type: GET_HOTELS, payload})
 export const addFavoritesAC = (payload) => ({type: ADD_FAVORITES, payload})
 export const removeFavoritesAC = (payload) => ({type: REMOVE_FAVORITES, payload})

@@ -19,7 +19,7 @@ const HotelsBlock = ({dateFormat}) => {
             </div>
             <div className={styles.carousel}>
                 <div className={styles.carousel_inner}>
-                    {carouselImg.map(img=><CarouselEL img={img}/>)}
+                    {carouselImg.map((img,i)=><CarouselEL key = {i} img={img}/>)}
                 </div>
             </div>
             <div className={styles.add_count}>

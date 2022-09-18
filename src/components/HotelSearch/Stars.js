@@ -4,68 +4,28 @@ import starFull from '../../assests/starsFull.png'
 import starNull from '../../assests/starsNull.png'
 
 const Stars = ({stars}) => {
-   if(stars===1){
-   return(
-       <div className={styles.stars}>
-          <img src={starFull} alt=""/>
-          <img src={starNull} alt=""/>
-          <img src={starNull} alt=""/>
-          <img src={starNull} alt=""/>
-          <img src={starNull} alt=""/>
-       </div>
-   )
-   }
-   if(stars===2){
-      return(
-          <div className={styles.stars}>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starNull} alt=""/>
-             <img src={starNull} alt=""/>
-             <img src={starNull} alt=""/>
-          </div>
-      )
+    if (stars === 5) {
+        const starArr = [...new Array(stars)]
+        return (
+            <div className={styles.stars}>
+                {starArr.map((_, i) => <img key={i} src={starFull} alt=""/>)}
+            </div>
+        )
+    }
+        const noStars = 5 - stars
+        const starArr = [...new Array(stars)]
+        const noStarArr = [...new Array(noStars)]
 
-   }
-   if(stars===3){
-      return(
-          <div className={styles.stars}>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starNull} alt=""/>
-             <img src={starNull} alt=""/>
-          </div>
-      )
+        return (
+            <div className={styles.stars}>
+                {starArr.map((_, i) => <img key={i} src={starFull} alt=""/>)}
+                {noStarArr.map((_, i) => <img key={i} src={starNull} alt=""/>)}
+            </div>
+        )
 
-   }
-   if(stars===4)  {
-      return(
-          <div className={styles.stars}>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starNull} alt=""/>
-          </div>
-      )
-   }
 
-   if(stars===5){
-      return(
-          <div className={styles.stars}>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-             <img src={starFull} alt=""/>
-          </div>
-      )
-
-   }
 };
 
 export default Stars;
 
 
-// return <img src={star} alt=""/>

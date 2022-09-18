@@ -13,8 +13,8 @@ const HotelEl = ({hotel, allHotels, dateFormat}) => {
     const addRemoveHandler = (hotel) => {
         if (favorite) dispatch(removeFavoritesAC(hotel.hotelId))
         else dispatch(addFavoritesAC(hotel))
-
     }
+
     return (
         <div className={`${styles.hotel_block} ${allHotels ? styles.all_hotel : styles.favorite_hotel}`}>
             {allHotels && <div className={styles.img}>
