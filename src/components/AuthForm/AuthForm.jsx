@@ -55,16 +55,15 @@ const AuthForm = () => {
 								Логин
 							</label>
 							<MyInput
-								style={errors.email && touched.email && { color: 'red' }}
 								name='email'
 								type='email'
+								placeholder={'Enter your email address...'}
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.email}
+								error={errors.email && touched.email}
+								errorMessage={errors.email}
 							/>
-							<div className={styles.error}>
-								{errors.email && touched.email && errors.email}
-							</div>
 						</div>
 						<div className={`${styles.input_block} ${styles.password_block} `}>
 							<label
@@ -74,16 +73,15 @@ const AuthForm = () => {
 								Пароль
 							</label>
 							<MyInput
-								style={errors.password && touched.password && { color: 'red' }}
 								name='password'
 								type='password'
+								placeholder={'Enter your password... '}
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.password}
+								error={errors.password && touched.password}
+								errorMessage={errors.password}
 							/>
-							<div className={styles.error}>
-								{errors.password && touched.password && errors.password}
-							</div>
 						</div>
 
 						<div className={styles.btn_submit}>

@@ -1,24 +1,33 @@
-@import "src/styles/variables";
+@import 'src/styles/variables';
 
-input {
-  width: 100%;
-  height: 50px;
-  padding: 15px;
-  outline: none;
-  background: #FFFF;
-  border: 1px solid #C9CACC;
-  border-radius: 4px;
-  margin-top: 7px;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 20px;
-  color: $text-color;
+.myInput {
+	width: 100%;
+	height: 50px;
+	padding: 15px;
+	outline: none;
+	background: #ffff;
+	border: 1px solid #c9cacc;
+	border-radius: 4px;
+	margin-top: 7px;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 20px;
+	color: $text-color;
 
-  &::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    color: transparent;
-    opacity: 1;
-    background: url('../../../assests/calendar-today.png');
-    background-size: contain;
-  }
+	&::-webkit-calendar-picker-indicator {
+		cursor: pointer;
+		color: transparent;
+		opacity: 1;
+		background: url('../../../assests/calendar-today.png');
+		background-size: contain;
+	}
+}
+.errorInput {
+	color: $red;
+	border: 1px solid $red;
+}
+.error {
+	position: absolute;
+	color: $red;
+	margin-top: 7px;
 }
