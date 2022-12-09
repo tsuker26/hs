@@ -1,6 +1,5 @@
-import AppRouter from "./components/AppRouter";
+import AppRouter from './components/AppRouter'
 
-const App = () => (<AppRouter/>);
+const App = () => <AppRouter />
 
-
-export default App;
+export default App
