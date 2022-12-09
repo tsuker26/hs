@@ -7,7 +7,7 @@ import HotelEl from "../HotelEl";
 import {useSelector} from "react-redux";
 
 
-const HotelsBlock = ({dateFormat}) => {
+const HotelsBlock = React.memo(({dateFormat}) => {
     const {allHotels, favoritesHotels, carouselImg} = useSelector(state => state?.hotels)
     const {info} = useSelector(state => state?.search)
     return (
@@ -34,6 +34,6 @@ const HotelsBlock = ({dateFormat}) => {
         </div>
 
     );
-};
+});
 
 export default HotelsBlock;

@@ -11,7 +11,6 @@ const AppRouter = () => {
     useEffect(() => {
         if (window.localStorage.getItem('auth')) dispatch(loginAc())
     }, [])
-
     return (
         <div className="App">
             {auth
