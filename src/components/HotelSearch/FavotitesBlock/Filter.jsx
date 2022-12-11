@@ -1,8 +1,8 @@
-import React from 'react'
+import {memo} from 'react'
 import styles from './FavoritesBlock.module.scss'
 import SelectEl from './SelectEl'
 
-const Filter = React.memo(() => {
+const Filter = memo(() => {
 	const filterItems = [
 		{ sort: 'stars', name: 'Рейтинг' },
 		{ sort: 'priceAvg', name: 'Цена' },

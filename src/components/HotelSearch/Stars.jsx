@@ -1,9 +1,9 @@
-import React from 'react'
+import {memo} from 'react'
 import styles from './HotelSearch.module.scss'
 import starFull from '../../assests/starsFull.png'
 import starNull from '../../assests/starsNull.png'
 
-const Stars = React.memo(({ stars }) => {
+const Stars = memo(({ stars }) => {
 	if (stars === 5) {
 		const starArr = [...new Array(stars)]
 		return (

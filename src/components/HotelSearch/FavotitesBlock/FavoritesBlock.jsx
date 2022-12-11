@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import  { useMemo,memo } from 'react'
 import styles from './FavoritesBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import Filter from './Filter'
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import HotelEl from '../HotelEl'
 import { quickSort } from '../../../utils/quickSort'
 
-const FavoritesBlock = React.memo(({ dateFormat }) => {
+const FavoritesBlock = memo(({ dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { filterName, arrowName } = useSelector(state => state?.filter)
 

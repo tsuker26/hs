@@ -1,4 +1,4 @@
-import React from 'react'
+import {memo} from 'react'
 import styles from './HotelsBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
@@ -6,7 +6,7 @@ import CarouselEL from './CarouselEL'
 import HotelEl from '../HotelEl'
 import { useSelector } from 'react-redux'
 
-const HotelsBlock = React.memo(({ dateFormat }) => {
+const HotelsBlock = memo(({ dateFormat }) => {
 	const { allHotels, favoritesHotels, carouselImg } = useSelector(
 		state => state?.hotels
 	)
