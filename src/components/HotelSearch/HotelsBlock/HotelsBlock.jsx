@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import {useMemo} from 'react'
 import styles from './HotelsBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
@@ -6,11 +6,22 @@ import CarouselEL from './CarouselEL'
 import HotelEl from '../HotelEl'
 import { useSelector } from 'react-redux'
 
-const HotelsBlock = memo(({ dateFormat }) => {
+const HotelsBlock = ({ dateFormat }) => {
 	const { allHotels, favoritesHotels, carouselImg } = useSelector(
 		state => state?.hotels
 	)
 	const { info } = useSelector(state => state?.search)
+
+	const hotelsMemo = useMemo(()=>{
+		return allHotels.map(hotel => (
+			<HotelEl
+				key={hotel.hotelId}
+				allHotels={true}
+				hotel={hotel}
+				dateFormat={dateFormat}
+			/>
+		))
+	},[allHotels])
 	return (
 		<div className={`${styles.hotels_block} ${s.block}`}>
 			<div className={styles.info}>
@@ -34,17 +45,10 @@ const HotelsBlock = memo(({ dateFormat }) => {
 				</p>
 			</div>
 			<div className={styles.hotels_items}>
-				{allHotels.map(hotel => (
-					<HotelEl
-						key={hotel.hotelId}
-						allHotels={true}
-						hotel={hotel}
-						dateFormat={dateFormat}
-					/>
-				))}
+				{hotelsMemo}
 			</div>
 		</div>
 	)
-})
+}
 
 export default HotelsBlock
