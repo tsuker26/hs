@@ -1,32 +1,21 @@
 import React from 'react'
 import { Formik } from 'formik'
-import * as yup from 'yup'
 import { useDispatch } from 'react-redux'
 
 import styles from './AuthForm.module.scss'
 import MyInput from '../UI/MyInput/MyInput'
 import MyButton from '../UI/MyButton/MyButton'
 import { loginAc } from '../../redux/reducers/authReducer'
+import { validationsAuthSchema } from '../../utils/validationSchemas'
 
 const AuthForm = () => {
 	const dispatch = useDispatch()
-	const validationsSchema = yup.object().shape({
-		email: yup
-			.string()
-			.email('Некорректный адресс почты ')
-			.required('Обязательное поле'),
-		password: yup
-			.string()
-			.matches(/(?=.*[a-z0-9])/, 'Не должен содержать кириллицу')
-			.min(8, 'Минимум 8 символов')
-			.required('Обязательное поле'),
-	})
 	return (
 		<div className={styles.form_auth}>
 			<h1>Simple Hotel Check</h1>
 			<Formik
 				initialValues={{ email: '', password: '' }}
-				validationSchema={validationsSchema}
+				validationSchema={validationsAuthSchema}
 				onSubmit={() => {
 					window.localStorage.setItem('auth', 'true')
 					dispatch(loginAc())

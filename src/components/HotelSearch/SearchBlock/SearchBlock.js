@@ -37,7 +37,6 @@ const SearchBlock = ({ dateOut }) => {
 					<label htmlFor='location'>Локация</label>
 					<MyInput
 						type='text'
-						id='location'
 						name='location'
 						onChange={e => dispatch(changeLocationAc(e.target.value))}
 						value={locationInput}
@@ -47,7 +46,6 @@ const SearchBlock = ({ dateOut }) => {
 					<label htmlFor='date'>Дата заселения</label>
 					<MyInput
 						type='date'
-						id='date'
 						name='date'
 						onChange={e => dispatch(changeDateAc(e.target.value))}
 						value={dateInput}
@@ -57,7 +55,6 @@ const SearchBlock = ({ dateOut }) => {
 					<label htmlFor='count'>Количество дней</label>
 					<MyInput
 						type='text'
-						id='countDay'
 						name='countDay'
 						onChange={e => dispatch(changeCountDayAc(e.target.value))}
 						value={countDayInput}
