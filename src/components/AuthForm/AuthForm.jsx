@@ -6,16 +6,17 @@ import styles from './AuthForm.module.scss'
 import MyInput from '../UI/MyInput/MyInput'
 import MyButton from '../UI/MyButton/MyButton'
 import { loginAc } from '../../redux/reducers/authReducer'
-import { validationsAuthSchema } from '../../utils/validationSchemas'
+import { validationsSchema } from '../../utils/validationSchemas'
 
 const AuthForm = () => {
 	const dispatch = useDispatch()
+	const validate = validationsSchema('auth')
 	return (
 		<div className={styles.form_auth}>
 			<h1>Simple Hotel Check</h1>
 			<Formik
 				initialValues={{ email: '', password: '' }}
-				validationSchema={validationsAuthSchema}
+				validationSchema={validate}
 				onSubmit={() => {
 					window.localStorage.setItem('auth', 'true')
 					dispatch(loginAc())
