@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
+import * as yup from 'yup'
 import { useDispatch } from 'react-redux'
 
 import styles from './AuthForm.module.scss'
@@ -9,30 +10,23 @@ import { loginAc } from '../../redux/reducers/authReducer'
 
 const AuthForm = () => {
 	const dispatch = useDispatch()
+	const validationsSchema = yup.object().shape({
+		email: yup
+			.string()
+			.email('Некорректный адресс почты ')
+			.required('Обязательное поле'),
+		password: yup
+			.string()
+			.matches(/(?=.*[a-z0-9])/, 'Не должен содержать кириллицу')
+			.min(8, 'Минимум 8 символов')
+			.required('Обязательное поле'),
+	})
 	return (
 		<div className={styles.form_auth}>
 			<h1>Simple Hotel Check</h1>
 			<Formik
 				initialValues={{ email: '', password: '' }}
-				validate={values => {
-					const errors = {}
-					if (!values.email) {
-						errors.email = 'Обязательное поле'
-					} else if (
-						!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-					) {
-						errors.email = 'Некорректный адресс почты '
-					}
-
-					if (!values.password) {
-						errors.password = 'Обязательное поле'
-					} else if (!/(?=.*[a-z0-9])/g.test(values.password)) {
-						errors.password = 'Не должен содержать кириллицу'
-					} else if (!/[0-9a-zA-Z!@#$%^&*]{8,}/g.test(values.password)) {
-						errors.password = ' Минимум 8 символов'
-					}
-					return errors
-				}}
+				validationSchema={validationsSchema}
 				onSubmit={() => {
 					window.localStorage.setItem('auth', 'true')
 					dispatch(loginAc())

@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import { useMemo } from 'react'
 import styles from './HotelsBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
@@ -12,7 +12,7 @@ const HotelsBlock = ({ dateFormat }) => {
 	)
 	const { info } = useSelector(state => state?.search)
 
-	const hotelsMemo = useMemo(()=>{
+	const hotelsMemo = useMemo(() => {
 		return allHotels.map(hotel => (
 			<HotelEl
 				key={hotel.hotelId}
@@ -21,7 +21,7 @@ const HotelsBlock = ({ dateFormat }) => {
 				dateFormat={dateFormat}
 			/>
 		))
-	},[allHotels])
+	}, [allHotels, dateFormat])
 	return (
 		<div className={`${styles.hotels_block} ${s.block}`}>
 			<div className={styles.info}>
@@ -44,9 +44,7 @@ const HotelsBlock = ({ dateFormat }) => {
 					Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля
 				</p>
 			</div>
-			<div className={styles.hotels_items}>
-				{hotelsMemo}
-			</div>
+			<div className={styles.hotels_items}>{hotelsMemo}</div>
 		</div>
 	)
 }
