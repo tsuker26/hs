@@ -32,15 +32,10 @@ const AuthForm = () => {
 				}) => (
 					<form onSubmit={handleSubmit}>
 						<div className={`${styles.input_block} ${styles.email_block} `}>
-							<label
-								style={errors.email && touched.email && { color: 'red' }}
-								htmlFor='email'
-							>
-								Логин
-							</label>
 							<MyInput
 								name='email'
 								type='email'
+								label='Логин'
 								placeholder={'Enter your email address...'}
 								onBlur={handleBlur}
 								onChange={handleChange}
@@ -50,15 +45,10 @@ const AuthForm = () => {
 							/>
 						</div>
 						<div className={`${styles.input_block} ${styles.password_block} `}>
-							<label
-								style={errors.password && touched.password && { color: 'red' }}
-								htmlFor='password'
-							>
-								Пароль
-							</label>
 							<MyInput
 								name='password'
 								type='password'
+								label='Пароль'
 								placeholder={'Enter your password... '}
 								onBlur={handleBlur}
 								onChange={handleChange}
@@ -67,7 +57,6 @@ const AuthForm = () => {
 								errorMessage={errors.password}
 							/>
 						</div>
-
 						<div className={styles.btn_submit}>
 							<MyButton type='submit'>Войти</MyButton>
 						</div>

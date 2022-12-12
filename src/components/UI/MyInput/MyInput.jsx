@@ -4,6 +4,7 @@ import styles from './MyInput.module.scss'
 const MyInput = ({
 	name,
 	type,
+	label,
 	placeholder,
 	onBlur,
 	onChange,
@@ -13,6 +14,9 @@ const MyInput = ({
 }) => {
 	return (
 		<>
+			<label style={error && { color: 'red' }} htmlFor={name}>
+				{label}
+			</label>
 			<input
 				className={
 					error ? `${styles.myInput} ${styles.errorInput}` : styles.myInput

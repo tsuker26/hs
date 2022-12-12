@@ -34,28 +34,28 @@ const SearchBlock = ({ dateOut }) => {
 		<div className={`${styles.search_block} ${s.block}`}>
 			<form onSubmit={handleSubmit}>
 				<div>
-					<label htmlFor='location'>Локация</label>
 					<MyInput
 						type='text'
 						name='location'
+						label='Локация'
 						onChange={e => dispatch(changeLocationAc(e.target.value))}
 						value={locationInput}
 					/>
 				</div>
 				<div className={styles.date}>
-					<label htmlFor='date'>Дата заселения</label>
 					<MyInput
 						type='date'
 						name='date'
+						label='Дата заселения'
 						onChange={e => dispatch(changeDateAc(e.target.value))}
 						value={dateInput}
 					/>
 				</div>
 				<div className={styles.count_day}>
-					<label htmlFor='count'>Количество дней</label>
 					<MyInput
 						type='text'
 						name='countDay'
+						label='Количество дней'
 						onChange={e => dispatch(changeCountDayAc(e.target.value))}
 						value={countDayInput}
 					/>
