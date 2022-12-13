@@ -10,7 +10,7 @@ const HotelsBlock = ({ dateFormat }) => {
 	const { allHotels, favoritesHotels, carouselImg } = useSelector(
 		state => state?.hotels
 	)
-	const { info } = useSelector(state => state?.search)
+	const { location } = useSelector(state => state?.search)
 
 	const hotelsMemo = useMemo(() => {
 		return allHotels.map(hotel => (
@@ -28,7 +28,7 @@ const HotelsBlock = ({ dateFormat }) => {
 				<span>
 					Отели
 					<img src={arrow} alt='' />
-					{info.location}
+					{location}
 				</span>
 				<span className={styles.date}>{dateFormat}</span>
 			</div>

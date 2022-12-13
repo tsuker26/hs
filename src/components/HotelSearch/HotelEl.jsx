@@ -10,7 +10,7 @@ import Stars from './Stars'
 
 const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
-	const { info } = useSelector(state => state?.search)
+	const { countDay } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
 	const favorite = favoritesHotels.find(f => f.hotelId === hotel.hotelId)
 	const addRemoveHandler = hotel => {
@@ -61,7 +61,7 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 				</div>
 				<div className={styles.date}>
 					<p>
-						{dateFormat} - {info.countDay} день{' '}
+						{dateFormat} - {countDay} день{' '}
 					</p>
 				</div>
 

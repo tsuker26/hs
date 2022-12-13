@@ -8,19 +8,16 @@ import { dateOutCount } from '../utils/dateOutCount'
 
 const HotelSearchPage = () => {
 	const dispatch = useDispatch()
-	const { locationInput, dateInput, countDayInput } = useSelector(
-		state => state.search
-	)
-
-	const dateOut = dateOutCount(dateInput, countDayInput)
+	const { location, date, countDay } = useSelector(state => state.search)
+	const dateOut = dateOutCount(date, countDay)
 
 	useEffect(() => {
-		dispatch(getHotelsAc({ locationInput, dateInput, dateOut }))
+		dispatch(getHotelsAc({ location, date, dateOut }))
 	}, [])
 	return (
 		<div className={'hotel_search_page'}>
 			<Header />
-			<HotelSearch dateOut={dateOut} />
+			<HotelSearch />
 		</div>
 	)
 }
