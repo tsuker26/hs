@@ -14,9 +14,14 @@ export const validationsSchema = schema => {
 				.required('Обязательное поле'),
 		})
 	} else if (schema === 'search') {
+		const today = new Date()
+		today.setHours(0, 0, 0, 0)
 		return yup.object().shape({
 			location: yup.string().required('Обязательное поле'),
-			date: yup.date('Должна быть дата').required('Обязательное поле'),
+			date: yup
+				.date()
+				.min(today, 'Прошедшее время')
+				.required('Обязательное поле'),
 			countDay: yup.number('Должно быть число').required('Обязательное поле'),
 		})
 	}
