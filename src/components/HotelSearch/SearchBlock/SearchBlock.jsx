@@ -9,7 +9,7 @@ import { changeInfoAc } from '../../../redux/reducers/searchReducer'
 import { getHotelsAc } from '../../../redux/reducers/hotelsReducer'
 import { Formik } from 'formik'
 import { validationsSchema } from '../../../utils/validationSchemas'
-import { dateOutCount } from '../../../utils/dateOutCount'
+import { dateOutCalc } from '../../../utils/date'
 
 const SearchBlock = () => {
 	const { location, date, countDay } = useSelector(state => state.search)
@@ -22,7 +22,7 @@ const SearchBlock = () => {
 				initialValues={{ location, date, countDay }}
 				validationSchema={validate}
 				onSubmit={values => {
-					const dateOut = dateOutCount(values.date, values.countDay)
+					const dateOut = dateOutCalc(values.date, values.countDay)
 					console.log(values.date)
 					dispatch(
 						getHotelsAc({
