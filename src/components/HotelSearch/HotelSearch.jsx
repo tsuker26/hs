@@ -8,7 +8,6 @@ import { dateFormatCreate } from '../../utils/date'
 
 const HotelSearch = () => {
 	const { date } = useSelector(state => state?.search)
-
 	const dateFormat = dateFormatCreate(date)
 
 	return (

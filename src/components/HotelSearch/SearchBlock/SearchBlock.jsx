@@ -23,7 +23,6 @@ const SearchBlock = () => {
 				validationSchema={validate}
 				onSubmit={values => {
 					const dateOut = dateOutCalc(values.date, values.countDay)
-					console.log(values.date)
 					dispatch(
 						getHotelsAc({
 							location: values.location,
@@ -58,7 +57,7 @@ const SearchBlock = () => {
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.location}
-								error={errors.location && touched.location}
+								touched={touched.location}
 								errorMessage={errors.location}
 							/>
 						</div>
@@ -71,7 +70,7 @@ const SearchBlock = () => {
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.date}
-								error={errors.date && touched.date}
+								touched={touched.date}
 								errorMessage={errors.date}
 							/>
 						</div>
@@ -83,7 +82,7 @@ const SearchBlock = () => {
 								placeholder={'Введите количетво дней'}
 								onChange={handleChange}
 								value={values.countDay}
-								error={errors.countDay && touched.countDay}
+								touched={touched.countDay}
 								errorMessage={errors.countDay}
 							/>
 						</div>

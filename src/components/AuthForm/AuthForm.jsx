@@ -40,7 +40,7 @@ const AuthForm = () => {
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.email}
-								error={errors.email && touched.email}
+								touched={touched.email}
 								errorMessage={errors.email}
 							/>
 						</div>
@@ -53,7 +53,7 @@ const AuthForm = () => {
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.password}
-								error={errors.password && touched.password}
+								touched={touched.password}
 								errorMessage={errors.password}
 							/>
 						</div>

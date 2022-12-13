@@ -9,17 +9,19 @@ const MyInput = ({
 	onBlur,
 	onChange,
 	value,
-	error,
+	touched,
 	errorMessage,
 }) => {
 	return (
 		<>
-			<label style={error && { color: 'red' }} htmlFor={name}>
+			<label style={errorMessage && touched && { color: 'red' }} htmlFor={name}>
 				{label}
 			</label>
 			<input
 				className={
-					error ? `${styles.myInput} ${styles.errorInput}` : styles.myInput
+					touched && errorMessage
+						? `${styles.myInput} ${styles.errorInput}`
+						: styles.myInput
 				}
 				name={name}
 				type={type}
@@ -28,7 +30,7 @@ const MyInput = ({
 				onChange={onChange}
 				value={value}
 			/>
-			<div className={styles.error}>{error && errorMessage}</div>
+			<div className={styles.error}>{touched && errorMessage}</div>
 		</>
 	)
 }

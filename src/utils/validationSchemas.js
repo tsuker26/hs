@@ -22,7 +22,11 @@ export const validationsSchema = schema => {
 				.date()
 				.min(today, 'Прошедшее время')
 				.required('Обязательное поле'),
-			countDay: yup.number('Должно быть число').required('Обязательное поле'),
+			countDay: yup
+				.number()
+				.typeError('Должно быть число')
+				.min(1, 'Не может быть меньше 1 ')
+				.required('Обязательное поле'),
 		})
 	}
 }
