@@ -6,8 +6,8 @@ function* hotelsWorker({ payload }) {
 	try {
 		const hotels = yield call(
 			getHotels,
-			payload.locationInput,
-			payload.dateInput,
+			payload.location,
+			payload.date,
 			payload.dateOut
 		)
 		yield put(setHotelsAc(hotels))
