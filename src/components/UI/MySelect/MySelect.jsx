@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import styles from '../../HotelSearch/FavotitesBlock/FavoritesBlock.module.scss'
+import styles from './MySelect.module.scss'
 import SelectEl from './SelectEl'
 
 const MySelect = ({ sortItems }) => {

@@ -1,0 +1,45 @@
+@import 'src/styles/variables';
+
+.sort {
+	display: flex;
+	gap: 8px;
+	margin-top: 32px;
+
+	.select {
+		display: flex;
+		align-items: center;
+		padding: 4px 8px;
+		border: 1px solid #e5e5e5;
+		border-radius: 4px;
+		cursor: pointer;
+
+		&.active {
+			border: 1px solid $green;
+
+			span {
+				color: $text-color;
+			}
+		}
+
+		span {
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 20px;
+			color: #99a0a3;
+		}
+
+		.arrow {
+			display: flex;
+			flex-direction: column;
+			margin-left: 9px;
+
+			svg {
+				fill-opacity: 0.3;
+			}
+
+			.arrow_active {
+				fill-opacity: 1;
+			}
+		}
+	}
+}

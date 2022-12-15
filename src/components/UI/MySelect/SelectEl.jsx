@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import styles from '../../HotelSearch/FavotitesBlock/FavoritesBlock.module.scss'
+import styles from './MySelect.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import ArrowEl from './ArrowEl'
 import { setSortNameAc } from '../../../redux/reducers/SortReducer'
