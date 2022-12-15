@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './FavoritesBlock.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setArrowNameAc } from '../../../redux/reducers/filterReducer'
+import { setArrowNameAc } from '../../../redux/reducers/SortReducer'
 
 const ArrowEl = ({ arrow, filter }) => {
 	const { filterName, arrowName } = useSelector(state => state.filter)

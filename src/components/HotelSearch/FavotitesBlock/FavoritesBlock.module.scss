@@ -3,6 +3,7 @@
 .favorites_block {
 	grid-area: C;
 	min-height: 472px;
+	max-width: 360px;
 	margin-bottom: 30px;
 
 	.filter {
@@ -60,6 +61,7 @@
 	}
 
 	@media (max-width: 767px) {
-		display: none;
+		//display: none;
+		max-width: 100%;
 	}
 }
