@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './FavoritesBlock.module.scss'
+import styles from '../../HotelSearch/FavotitesBlock/FavoritesBlock.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSortByAc } from '../../../redux/reducers/SortReducer'
 

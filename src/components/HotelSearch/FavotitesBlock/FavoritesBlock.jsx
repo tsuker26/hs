@@ -1,8 +1,9 @@
 import styles from './FavoritesBlock.module.scss'
 import s from '../HotelSearch.module.scss'
-import Select from './Select'
+import MySelect from '../../UI/MySelect/MySelect'
 import { useSelector } from 'react-redux'
 import { useFavoritesHotels } from '../../../hooks/useFavoritesHotels'
+import { sortItems } from '../../../data'
 
 const FavoritesBlock = ({ dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
@@ -20,7 +21,7 @@ const FavoritesBlock = ({ dateFormat }) => {
 			<h1 style={{ textAlign: 'start' }}>Избранное</h1>
 			{hotels?.length ? (
 				<>
-					<Select />
+					<MySelect sortItems={sortItems} />
 					<div className={styles.favorites}>{hotels}</div>
 				</>
 			) : (

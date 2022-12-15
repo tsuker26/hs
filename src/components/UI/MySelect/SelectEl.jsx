@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
-import styles from './FavoritesBlock.module.scss'
+import styles from '../../HotelSearch/FavotitesBlock/FavoritesBlock.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import ArrowEl from './ArrowEl'
 import { setSortNameAc } from '../../../redux/reducers/SortReducer'
+import { sortByItems } from '../../../data'
 
 const SelectEl = ({ sortItem }) => {
 	const { sortName } = useSelector(state => state.sort)
 	const dispatch = useDispatch()
-	const sortByItems = ['ASC', 'DESC']
 	const sortByMemo = useMemo(() => {
 		return sortByItems.map(sortBy => (
 			<ArrowEl key={sortBy} sortByItem={sortBy} sortItem={sortItem} />
