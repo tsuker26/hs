@@ -2,7 +2,7 @@
 
 .hotel_search_block {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto 664px;
 	grid-template-areas:
 		' A B '
 		' C B ';
