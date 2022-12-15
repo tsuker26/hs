@@ -15,9 +15,20 @@
 			width: 0;
 		}
 	}
-
-	@media (max-width: 767px) {
-		//display: none;
+}
+.active {
+	display: none;
+}
+@media (max-width: 767px) {
+	.favorites_block {
+		display: none;
 		max-width: 100%;
+		margin: 0;
+		.favorites {
+			height: 65vh;
+		}
+	}
+	.active {
+		display: block;
 	}
 }

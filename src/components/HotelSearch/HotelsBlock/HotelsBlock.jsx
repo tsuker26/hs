@@ -4,13 +4,16 @@ import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
 import CarouselEL from './CarouselEL'
 import HotelEl from '../HotelEl'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import FavoritesBlock from '../FavotitesBlock/FavoritesBlock'
+import { setModalAc } from '../../../redux/reducers/modalReducer'
 
 const HotelsBlock = ({ dateFormat }) => {
 	const { allHotels, favoritesHotels, carouselImg } = useSelector(
 		state => state?.hotels
 	)
 	const { location } = useSelector(state => state?.search)
+	const dispatch = useDispatch()
 
 	const hotelsMemo = useMemo(() => {
 		return allHotels.map(hotel => (
@@ -42,6 +45,19 @@ const HotelsBlock = ({ dateFormat }) => {
 			<div className={styles.add_count}>
 				<p>
 					Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля
+					<img
+						className={styles.open_modal}
+						onClick={() =>
+							dispatch(
+								setModalAc({
+									active: true,
+									body: <FavoritesBlock dateFormat={dateFormat} />,
+								})
+							)
+						}
+						src={arrow}
+						alt=''
+					/>
 				</p>
 			</div>
 			<div className={styles.hotels_items}>{hotelsMemo}</div>

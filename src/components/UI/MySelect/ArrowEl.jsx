@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './MySelect.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSortByAc } from '../../../redux/reducers/SortReducer'
+import { setSortByAc } from '../../../redux/reducers/sortReducer'
 
 const ArrowEl = ({ sortByItem, sortItem }) => {
 	const { sortName, sortBy } = useSelector(state => state.sort)

@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import styles from './MySelect.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import ArrowEl from './ArrowEl'
-import { setSortNameAc } from '../../../redux/reducers/SortReducer'
+import { setSortNameAc } from '../../../redux/reducers/sortReducer'
 import { sortByItems } from '../../../data'
 
 const SelectEl = ({ sortItem }) => {

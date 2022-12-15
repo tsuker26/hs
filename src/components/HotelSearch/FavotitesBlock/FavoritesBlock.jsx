@@ -8,6 +8,7 @@ import { sortItems } from '../../../data'
 const FavoritesBlock = ({ dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { sortName, sortBy } = useSelector(state => state?.sort)
+	const { active } = useSelector(state => state?.modal)
 
 	const hotels = useFavoritesHotels(
 		favoritesHotels,
@@ -17,7 +18,13 @@ const FavoritesBlock = ({ dateFormat }) => {
 	)
 
 	return (
-		<div className={`${styles.favorites_block} ${s.block}`}>
+		<div
+			className={
+				active
+					? `${styles.favorites_block} ${s.block} ${styles.active}`
+					: `${styles.favorites_block} ${s.block}`
+			}
+		>
 			<h1 style={{ textAlign: 'start' }}>Избранное</h1>
 			{hotels?.length ? (
 				<>
