@@ -1,93 +1,116 @@
-@import "src/styles/variables";
+@import 'src/styles/variables';
 
 .hotels_block {
-  grid-area: B;
-  margin-bottom: 30px;
+	grid-area: B;
+	margin-bottom: 30px;
+	.info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-  .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+		span {
+			color: $text-color;
+			font-weight: 500;
+			font-size: 32px;
+			line-height: 38px;
 
-    span {
-      color: $text-color;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 38px;
+			&.date {
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 28px;
+				color: $green;
+			}
 
-      &.date {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 28px;
-        color: $green;
-      }
+			img {
+				margin: 0 20px;
+				width: 8.67px;
+				height: 17.33px;
+			}
+		}
+		@media (max-width: 992px) {
+			span {
+				font-size: 28px;
+				&.date {
+					font-size: 20px;
+				}
+				img {
+					margin: 0 10px;
+					width: 6.67px;
+					height: 15.33px;
+				}
+			}
+		}
+		@media (max-width: 830px) {
+			span {
+				font-size: 24px;
+				&.date {
+					font-size: 16px;
+				}
+				img {
+					margin: 0 7px;
+					width: 4.67px;
+					height: 13.33px;
+				}
+			}
+		}
+	}
 
-      img {
-        margin: 0 20px;
-        width: 8.67px;
-        height: 17.33px;
-      }
-    }
-  }
+	.carousel {
+		margin: 28px 0;
+		position: relative;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		height: 164px;
 
-  .carousel {
-    margin: 28px 0;
-    position: relative;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    height: 164px;
+		&::-webkit-scrollbar {
+			width: 0;
+			color: $green;
+		}
 
-    &::-webkit-scrollbar {
-      width: 0;
-      color: $green;
-    }
+		.carousel_inner {
+			position: absolute;
 
-    .carousel_inner {
-      position: absolute;
+			display: flex;
+			justify-content: center;
+			height: 100%;
 
-      display: flex;
-      justify-content: center;
-      height: 100%;
+			.carousel_item {
+				img {
+					border-radius: 10px;
+					width: 164px;
+					height: 149px;
+				}
+			}
+		}
+	}
 
+	.add_count {
+		p {
+			font-weight: 300;
+			font-size: 17px;
+			line-height: 22px;
+			color: $text-color;
 
-      .carousel_item {
-        img {
-          border-radius: 10px;
-          width: 164px;
-          height: 149px;
-        }
-      }
-    }
-  }
+			span {
+				margin-left: 8px;
+				font-weight: 500;
+				color: $green;
+			}
+		}
+	}
 
-  .add_count {
-    p {
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 22px;
-      color: $text-color;
+	.hotels_items {
+		margin-top: 16px;
+		height: 563px;
+		overflow-y: scroll;
 
-      span {
-        margin-left: 8px;
-        font-weight: 500;
-        color: $green;
-      }
-    }
-  }
+		&::-webkit-scrollbar {
+			width: 2px;
+			background-color: #e7e7e7;
+		}
 
-  .hotels_items {
-    margin-top: 16px;
-    height: 563px;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      width: 2px;
-      background-color: #E7E7E7;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: $green;
-    }
-  }
-
+		&::-webkit-scrollbar-thumb {
+			background-color: $green;
+		}
+	}
 }
