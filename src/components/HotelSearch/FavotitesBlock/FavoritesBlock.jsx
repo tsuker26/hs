@@ -21,7 +21,7 @@ const FavoritesBlock = ({ dateFormat }) => {
 		<div
 			className={
 				active
-					? `${styles.favorites_block} ${s.block} ${styles.active}`
+					? `${styles.modal_favorites_block} ${s.block} `
 					: `${styles.favorites_block} ${s.block}`
 			}
 		>
