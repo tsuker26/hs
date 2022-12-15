@@ -1,137 +1,148 @@
-@import "src/styles/variables";
+@import 'src/styles/variables';
 
 .hotel_search_block {
-  display: grid;
-  grid-template-columns: 364px auto;
-  grid-template-areas:  ' A B '
-                        ' C B ';
-  gap: 24px;
-  position: absolute;
-  width: 1048px;
-  left: calc(50% - 1048px / 2 + 12px);
-  top: 92px;
+	display: grid;
+	grid-template-columns: auto 664px;
+	grid-template-areas:
+		' A B '
+		' C B ';
+	gap: 24px;
+	position: absolute;
+	max-width: 1048px;
+	left: calc(50% - 1048px / 2 + 12px);
+	top: 92px;
 
-
-  .block {
-    box-shadow: 0 4px 33px rgba(0, 0, 0, 0.04);
-    border-radius: 16px;
-    background-color: #FFFF;
-    padding: 32px;
-  }
+	.block {
+		box-shadow: 0 4px 33px rgba(0, 0, 0, 0.04);
+		border-radius: 16px;
+		background-color: #ffff;
+		padding: 32px;
+	}
+	@media (max-width: 992px) {
+		grid-template-columns: auto auto;
+		gap: 10px;
+		left: 0;
+		right: 0;
+	}
+	@media (max-width: 767px) {
+		column-gap: 0;
+		row-gap: 15px;
+		max-width: 100%;
+		grid-template-areas:
+			' A '
+			' B  '
+			' C ';
+		grid-template-columns: auto;
+		right: 5px;
+		left: 5px;
+	}
 }
 
 .hotel_block {
+	border-bottom: 1px solid #87878733;
+	&.all_hotel {
+		display: flex;
+		padding-right: 24px;
 
+		.info_hotel {
+			width: 100%;
+			margin-left: 24px;
+		}
 
-  border-bottom: 1px solid #87878733;
+		.img {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			align-self: center;
+			width: 64px;
+			height: 64px;
+			background: rgba(65, 82, 46, 0.05);
+			border-radius: 50%;
+		}
+	}
 
-  &.all_hotel {
-    display: flex;
-    padding-right: 24px;
+	&.favorite_hotel {
+		animation: add 1s forwards;
+	}
 
-    .info_hotel {
-      width: 100%;
-      margin-left: 24px;
-    }
+	&:last-child {
+		border: 0;
+	}
 
-    .img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-self: center;
-      width: 64px;
-      height: 64px;
-      background: rgba(65, 82, 46, 0.05);
-      border-radius: 50%;
-    }
+	.name {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 16px;
 
-  }
+		svg {
+			cursor: pointer;
+			fill: #ffff;
+			stroke: #c4c4c4;
+			stroke-linecap: round;
+			stroke-linejoin: round;
 
-  &.favorite_hotel {
-    animation: add 1s forwards;
-  }
+			&.active {
+				fill: #e55858;
+				stroke: none;
+			}
 
-  &:last-child {
-    border: 0;
-  }
+			&:hover {
+				fill: #ebebeb;
+			}
+		}
+	}
 
+	.date {
+		margin-top: 4px;
+	}
 
-  .name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
+	p {
+		color: #878787;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		@media (max-width: 576px) {
+			font-size: 12px;
+		}
+	}
 
-    svg {
-      cursor: pointer;
-      fill: #FFFF;
-      stroke: #C4C4C4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+	.data_hotel {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+		margin-bottom: 15px;
 
-      &.active {
-        fill: #E55858;
-        stroke: none;
+		.stars {
+			display: flex;
+			width: 99px;
+			height: 17px;
+		}
 
-      }
+		.price {
+			display: flex;
 
-      &:hover {
-        fill: #EBEBEB;
-      }
-    }
-  }
+			p {
+				font-size: 11px;
+				font-weight: 300;
+			}
 
-  .date {
-    margin-top: 4px;
-  }
-
-  p {
-    color: #878787;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  .data_hotel {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 15px;
-
-    .stars {
-      display: flex;
-      width: 99px;
-      height: 17px;
-    }
-
-
-    .price {
-      display: flex;
-
-      p {
-        font-size: 11px;
-        font-weight: 300;
-      }
-
-      span {
-        font-weight: 400;
-        font-size: 17px;
-        line-height: 22px;
-        color: #424242;
-        margin-left: 8px;
-      }
-    }
-
-  }
-
+			span {
+				font-weight: 400;
+				font-size: 17px;
+				line-height: 22px;
+				color: #424242;
+				margin-left: 8px;
+			}
+		}
+	}
 }
 
-
 @keyframes add {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

@@ -1,18 +1,18 @@
 import React from 'react'
 import styles from './FavoritesBlock.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setArrowNameAc } from '../../../redux/reducers/filterReducer'
+import { setSortByAc } from '../../../redux/reducers/SortReducer'
 
-const ArrowEl = ({ arrow, filter }) => {
-	const { filterName, arrowName } = useSelector(state => state.filter)
+const ArrowEl = ({ sortByItem, sortItem }) => {
+	const { sortName, sortBy } = useSelector(state => state.sort)
 	const dispatch = useDispatch()
 	return (
 		<>
-			{arrow === 'ASC' ? (
+			{sortByItem === 'ASC' ? (
 				<svg
-					onClick={() => dispatch(setArrowNameAc(arrow))}
+					onClick={() => dispatch(setSortByAc(sortByItem))}
 					className={
-						filter.sort === filterName && arrow === arrowName
+						sortItem.sort === sortName && sortByItem === sortBy
 							? styles.arrow_active
 							: ''
 					}
@@ -32,9 +32,9 @@ const ArrowEl = ({ arrow, filter }) => {
 				</svg>
 			) : (
 				<svg
-					onClick={() => dispatch(setArrowNameAc(arrow))}
+					onClick={() => dispatch(setSortByAc(sortByItem))}
 					className={
-						filter.sort === filterName && arrow === arrowName
+						sortItem.sort === sortName && sortByItem === sortBy
 							? styles.arrow_active
 							: ''
 					}

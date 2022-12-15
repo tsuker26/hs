@@ -1,32 +1,29 @@
-import {useMemo} from 'react'
+import { useMemo } from 'react'
 import styles from './FavoritesBlock.module.scss'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ArrowEl from './ArrowEl'
-import {setFilterNameAc} from '../../../redux/reducers/filterReducer'
+import { setSortNameAc } from '../../../redux/reducers/SortReducer'
 
-const SelectEl = ({filter}) => {
-    const {filterName} = useSelector(state => state.filter)
-    const dispatch = useDispatch()
-    const arrowItems = ['ASC', 'DESC']
-    const arrowsMemo = useMemo(() => {
-        return arrowItems.map(arrow => (
-            <ArrowEl key={arrow} arrow={arrow} filter={filter}/>
-        ))
-
-    }, [arrowItems])
-    return (
-        <div
-            onClick={() => dispatch(setFilterNameAc(filter.sort))}
-            className={`${styles.select} ${
-                filter.sort === filterName ? styles.active : ''
-            }`}
-        >
-            <span>{filter.name}</span>
-            <div className={styles.arrow}>
-                {arrowsMemo}
-            </div>
-        </div>
-    )
+const SelectEl = ({ sortItem }) => {
+	const { sortName } = useSelector(state => state.sort)
+	const dispatch = useDispatch()
+	const sortByItems = ['ASC', 'DESC']
+	const sortByMemo = useMemo(() => {
+		return sortByItems.map(sortBy => (
+			<ArrowEl key={sortBy} sortByItem={sortBy} sortItem={sortItem} />
+		))
+	}, [sortByItems])
+	return (
+		<div
+			onClick={() => dispatch(setSortNameAc(sortItem.sort))}
+			className={`${styles.select} ${
+				sortItem.sort === sortName ? styles.active : ''
+			}`}
+		>
+			<span>{sortItem.name}</span>
+			<div className={styles.arrow}>{sortByMemo}</div>
+		</div>
+	)
 }
 
 export default SelectEl

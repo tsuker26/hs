@@ -14,6 +14,12 @@
 	position: absolute;
 	left: calc(50% - 409px / 2 - 0.5px);
 	top: calc(50% - 382px / 2);
+	@media (max-width: 410px) {
+		top: 0;
+		left: 0;
+		height: 100%;
+		max-width: 100%;
+	}
 
 	label {
 		font-weight: 300;

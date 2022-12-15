@@ -1,6 +1,6 @@
 .search_block {
 	grid-area: A;
-
+	max-width: 360px;
 	.date {
 		margin-top: 16px;
 	}
@@ -15,5 +15,8 @@
 
 	label {
 		font-weight: 500;
+	}
+	@media (max-width: 767px) {
+		max-width: 767px;
 	}
 }

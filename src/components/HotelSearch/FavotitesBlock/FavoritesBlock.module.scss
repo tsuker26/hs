@@ -3,9 +3,10 @@
 .favorites_block {
 	grid-area: C;
 	min-height: 472px;
+	max-width: 360px;
 	margin-bottom: 30px;
 
-	.filter {
+	.sort {
 		display: flex;
 		gap: 8px;
 		margin-top: 32px;
@@ -57,5 +58,10 @@
 		&::-webkit-scrollbar {
 			width: 0;
 		}
+	}
+
+	@media (max-width: 767px) {
+		//display: none;
+		max-width: 100%;
 	}
 }
