@@ -4,17 +4,17 @@ import HotelEl from '../components/HotelSearch/HotelEl'
 
 export const useFavoritesHotels = (
 	favoritesHotels,
-	filterName,
-	arrowName,
+	sortName,
+	sortBy,
 	dateFormat
 ) => {
 	const favoritesHotelsSort = useMemo(() => {
-		if (arrowName === 'ASC') {
-			return quickSort(favoritesHotels, filterName)
+		if (sortBy === 'ASC') {
+			return quickSort(favoritesHotels, sortName)
 		} else {
-			return quickSort(favoritesHotels, filterName).reverse()
+			return quickSort(favoritesHotels, sortName).reverse()
 		}
-	}, [favoritesHotels, filterName, arrowName])
+	}, [favoritesHotels, sortName, sortBy])
 	return useMemo(() => {
 		return favoritesHotelsSort.map(hotel => (
 			<HotelEl

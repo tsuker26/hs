@@ -17,5 +17,5 @@ export default function sortReducer(state = defaultState, { type, payload }) {
 	}
 }
 
-export const setFilterNameAc = payload => ({ type: SORT_NAME, payload })
-export const setArrowNameAc = payload => ({ type: SORT_BY, payload })
+export const setSortNameAc = payload => ({ type: SORT_NAME, payload })
+export const setSortByAc = payload => ({ type: SORT_BY, payload })
