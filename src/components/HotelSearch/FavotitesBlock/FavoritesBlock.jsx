@@ -5,13 +5,10 @@ import { useSelector } from 'react-redux'
 import { useFavoritesHotels } from '../../../hooks/useFavoritesHotels'
 import { sortItems } from '../../../data'
 
-const FavoritesBlock = ({ dateFormat }) => {
-	const { favoritesHotels } = useSelector(state => state?.hotels)
+const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { sortName, sortBy } = useSelector(state => state?.sort)
 	const { active } = useSelector(state => state?.modal)
-	const favoritesHotelsDate = favoritesHotels.filter(
-		hotel => hotel.date === dateFormat
-	)
+
 	const hotels = useFavoritesHotels(
 		favoritesHotelsDate,
 		sortName,

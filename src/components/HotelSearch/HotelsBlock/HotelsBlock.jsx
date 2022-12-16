@@ -8,15 +8,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import FavoritesBlock from '../FavotitesBlock/FavoritesBlock'
 import { setModalAc } from '../../../redux/reducers/modalReducer'
 
-const HotelsBlock = ({ dateFormat }) => {
-	const { allHotels, favoritesHotels, carouselImg } = useSelector(
-		state => state?.hotels
-	)
+const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
+	const { allHotels, carouselImg } = useSelector(state => state?.hotels)
 	const { location } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
-	const favoritesHotelsDate = favoritesHotels.filter(
-		hotel => hotel.date === dateFormat
-	)
+
 	const hotelsMemo = useMemo(() => {
 		return allHotels.map(hotel => (
 			<HotelEl
