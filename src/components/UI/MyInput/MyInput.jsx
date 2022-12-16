@@ -14,7 +14,11 @@ const MyInput = ({
 }) => {
 	return (
 		<>
-			<label style={errorMessage && touched && { color: 'red' }} htmlFor={name}>
+			<label
+				className={styles.label}
+				style={errorMessage && touched && { color: 'red' }}
+				htmlFor={name}
+			>
 				{label}
 			</label>
 			<input
