@@ -88,7 +88,12 @@
 			background-color: $green;
 		}
 	}
-
+	.open_modal {
+		display: none;
+		margin: 0 10px;
+		width: 5.67px;
+		height: 11.33px;
+	}
 	@media (max-width: 992px) {
 		.info {
 			span {
@@ -106,6 +111,9 @@
 	}
 	@media (max-width: 767px) {
 		max-width: 767px;
+		.open_modal {
+			display: inline;
+		}
 		.info {
 			span {
 				font-size: 24px;
