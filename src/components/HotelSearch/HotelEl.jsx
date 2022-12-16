@@ -12,12 +12,16 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { countDay } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
-	const favorite = favoritesHotels.find(f => f.hotelId === hotel.hotelId)
-	const addRemoveHandler = (hotel, dateFormat) => {
-		if (favorite) dispatch(removeFavoritesAC(hotel.hotelId))
-		else {
-			hotel.date = dateFormat
-			dispatch(addFavoritesAC(hotel))
+	const favorite = favoritesHotels
+		.filter(f => f.hotelId === hotel.hotelId)
+		.find(f => f.date === dateFormat)
+	const addRemoveHandler = (hotel, dateFormat, favorite) => {
+		if (favorite) {
+			dispatch(removeFavoritesAC(favorite.favoriteId))
+		} else {
+			dispatch(
+				addFavoritesAC({ ...hotel, favoriteId: new Date(), date: dateFormat })
+			)
 		}
 	}
 
@@ -39,7 +43,7 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 						className={
 							favorite && favorite.date === dateFormat ? styles.active : ''
 						}
-						onClick={() => addRemoveHandler(hotel, dateFormat)}
+						onClick={() => addRemoveHandler(hotel, dateFormat, favorite)}
 						width='21'
 						height='18'
 						viewBox='0 0 21 18'

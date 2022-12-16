@@ -4,6 +4,7 @@ import MySelect from '../../UI/MySelect/MySelect'
 import { useSelector } from 'react-redux'
 import { useFavoritesHotels } from '../../../hooks/useFavoritesHotels'
 import { sortItems } from '../../../data'
+import HotelEl from '../HotelEl'
 
 const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { sortName, sortBy } = useSelector(state => state?.sort)
@@ -13,7 +14,8 @@ const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 		favoritesHotelsDate,
 		sortName,
 		sortBy,
-		dateFormat
+		dateFormat,
+		HotelEl
 	)
 
 	return (
