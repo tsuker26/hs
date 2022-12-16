@@ -14,7 +14,9 @@ const HotelsBlock = ({ dateFormat }) => {
 	)
 	const { location } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
-
+	const favoritesHotelsDate = favoritesHotels.filter(
+		hotel => hotel.date === dateFormat
+	)
 	const hotelsMemo = useMemo(() => {
 		return allHotels.map(hotel => (
 			<HotelEl
@@ -44,7 +46,7 @@ const HotelsBlock = ({ dateFormat }) => {
 			</div>
 			<div className={styles.add_count}>
 				<p>
-					Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля
+					Добавлено в Избранное: <span>{favoritesHotelsDate.length}</span> отеля
 					<img
 						className={styles.open_modal}
 						onClick={() =>

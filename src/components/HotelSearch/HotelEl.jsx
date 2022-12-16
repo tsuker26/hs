@@ -13,9 +13,12 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 	const { countDay } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
 	const favorite = favoritesHotels.find(f => f.hotelId === hotel.hotelId)
-	const addRemoveHandler = hotel => {
+	const addRemoveHandler = (hotel, dateFormat) => {
 		if (favorite) dispatch(removeFavoritesAC(hotel.hotelId))
-		else dispatch(addFavoritesAC(hotel))
+		else {
+			hotel.date = dateFormat
+			dispatch(addFavoritesAC(hotel))
+		}
 	}
 
 	return (
@@ -33,8 +36,10 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 				<div className={styles.name}>
 					<h2>{hotel.hotelName}</h2>
 					<svg
-						className={favorite ? styles.active : ''}
-						onClick={() => addRemoveHandler(hotel)}
+						className={
+							favorite && favorite.date === dateFormat ? styles.active : ''
+						}
+						onClick={() => addRemoveHandler(hotel, dateFormat)}
 						width='21'
 						height='18'
 						viewBox='0 0 21 18'
@@ -61,7 +66,7 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 				</div>
 				<div className={styles.date}>
 					<p>
-						{dateFormat} - {countDay} день{' '}
+						{allHotels ? dateFormat : hotel.date} - {countDay} день{' '}
 					</p>
 				</div>
 

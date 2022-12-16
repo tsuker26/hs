@@ -9,9 +9,11 @@ const FavoritesBlock = ({ dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { sortName, sortBy } = useSelector(state => state?.sort)
 	const { active } = useSelector(state => state?.modal)
-
+	const favoritesHotelsDate = favoritesHotels.filter(
+		hotel => hotel.date === dateFormat
+	)
 	const hotels = useFavoritesHotels(
-		favoritesHotels,
+		favoritesHotelsDate,
 		sortName,
 		sortBy,
 		dateFormat
