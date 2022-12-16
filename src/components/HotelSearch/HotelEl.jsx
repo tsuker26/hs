@@ -15,12 +15,13 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 	const favorite = favoritesHotels
 		.filter(f => f.hotelId === hotel.hotelId)
 		.find(f => f.date === dateFormat)
+
 	const addRemoveHandler = (hotel, dateFormat, favorite) => {
 		if (favorite) {
 			dispatch(removeFavoritesAC(favorite.favoriteId))
 		} else {
 			dispatch(
-				addFavoritesAC({ ...hotel, favoriteId: new Date(), date: dateFormat })
+				addFavoritesAC({ ...hotel, favoriteId: Date.now(), date: dateFormat })
 			)
 		}
 	}
