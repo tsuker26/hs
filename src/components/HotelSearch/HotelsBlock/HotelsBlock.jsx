@@ -49,7 +49,12 @@ const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
 							dispatch(
 								setModalAc({
 									active: true,
-									body: <FavoritesBlock dateFormat={dateFormat} />,
+									body: (
+										<FavoritesBlock
+											dateFormat={dateFormat}
+											favoritesHotelsDate={favoritesHotelsDate}
+										/>
+									),
 								})
 							)
 						}
