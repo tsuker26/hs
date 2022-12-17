@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
 import { quickSort } from '../utils/quickSort'
-import HotelEl from '../components/HotelSearch/HotelEl'
 
 export const useFavoritesHotels = (
 	favoritesHotels,
 	sortName,
 	sortBy,
-	dateFormat
+	dateFormat,
+	HotelEl
 ) => {
 	const favoritesHotelsSort = useMemo(() => {
 		if (sortBy === 'ASC') {

@@ -18,7 +18,7 @@ export default function hotelsReducer(state = defaultState, { type, payload }) {
 			return {
 				...state,
 				favoritesHotels: [
-					...state.favoritesHotels.filter(f => f.hotelId !== payload),
+					...state.favoritesHotels.filter(f => f.favoriteId !== payload),
 				],
 			}
 		default:

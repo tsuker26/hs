@@ -8,10 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import FavoritesBlock from '../FavotitesBlock/FavoritesBlock'
 import { setModalAc } from '../../../redux/reducers/modalReducer'
 
-const HotelsBlock = ({ dateFormat }) => {
-	const { allHotels, favoritesHotels, carouselImg } = useSelector(
-		state => state?.hotels
-	)
+const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
+	const { allHotels, carouselImg } = useSelector(state => state?.hotels)
 	const { location } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
 
@@ -44,7 +42,7 @@ const HotelsBlock = ({ dateFormat }) => {
 			</div>
 			<div className={styles.add_count}>
 				<p>
-					Добавлено в Избранное: <span>{favoritesHotels.length}</span> отеля
+					Добавлено в Избранное: <span>{favoritesHotelsDate.length}</span> отеля
 					<img
 						className={styles.open_modal}
 						onClick={() =>
