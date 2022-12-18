@@ -21,7 +21,12 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 			dispatch(removeFavoritesAC(favorite.favoriteId))
 		} else {
 			dispatch(
-				addFavoritesAC({ ...hotel, favoriteId: Date.now(), date: dateFormat })
+				addFavoritesAC({
+					...hotel,
+					favoriteId: Date.now(),
+					date: dateFormat,
+					countDay,
+				})
 			)
 		}
 	}
@@ -71,7 +76,8 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 				</div>
 				<div className={styles.date}>
 					<p>
-						{allHotels ? dateFormat : hotel.date} - {countDay} день{' '}
+						{allHotels ? dateFormat : hotel.date} -{' '}
+						{allHotels ? countDay : hotel.countDay} день{' '}
 					</p>
 				</div>
 
