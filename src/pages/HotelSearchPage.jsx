@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HotelSearch from '../components/HotelSearch/HotelSearch'
 import Header from '../components/Header/Header'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import { getHotelsAc } from '../redux/reducers/hotelsReducer'
 import { dateOutCalc } from '../utils/date'
 import MyModal from '../components/UI/MyModal/MyModal'
@@ -15,6 +14,7 @@ const HotelSearchPage = () => {
 	useEffect(() => {
 		dispatch(getHotelsAc({ location, date, dateOut }))
 	}, [])
+
 	return (
 		<div className={'hotel_search_page'}>
 			<Header />
