@@ -3,12 +3,15 @@ import styles from './Header.module.scss'
 import logOutIcon from '../../assests/logout_icon.png'
 import { useDispatch } from 'react-redux'
 import { logOutAc } from '../../redux/reducers/authReducer'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const logOut = () => {
 		dispatch(logOutAc())
 		window.localStorage.removeItem('auth')
+		navigate('/')
 	}
 	return (
 		<div className={styles.header}>
