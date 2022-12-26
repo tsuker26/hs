@@ -7,11 +7,9 @@ import MyInput from '../UI/MyInput/MyInput'
 import MyButton from '../UI/MyButton/MyButton'
 import { loginAc } from '../../redux/reducers/authReducer'
 import { validationsSchema } from '../../utils/validationSchemas'
-import { useNavigate } from 'react-router-dom'
 
 const AuthForm = () => {
 	const dispatch = useDispatch()
-	const navigate = useNavigate()
 	const validate = validationsSchema('auth')
 	return (
 		<div className={styles.form_auth}>
@@ -22,7 +20,7 @@ const AuthForm = () => {
 				onSubmit={() => {
 					window.localStorage.setItem('auth', 'true')
 					dispatch(loginAc())
-					navigate('/hotels')
+					// navigate('/hotels')
 				}}
 			>
 				{({

@@ -1,7 +1,7 @@
+const authToken = window.localStorage.getItem('auth')
 const defaultState = {
-	auth: false,
+	auth: !!authToken,
 }
-
 const LOGIN = 'LOGIN'
 const LOG_OUT = 'LOG_OUT'
 
@@ -15,6 +15,5 @@ export default function authReducer(state = defaultState, action) {
 			return state
 	}
 }
-
 export const loginAc = () => ({ type: LOGIN })
 export const logOutAc = () => ({ type: LOG_OUT })

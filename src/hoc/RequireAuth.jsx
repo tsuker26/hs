@@ -1,19 +1,12 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import AuthPage from '../pages/AuthPage'
+import HotelSearchPage from '../pages/HotelSearchPage'
 
-const RequireAuth = ({ children }) => {
-	// const dispatch = useDispatch()
-	// useEffect(() => {
-	// 	if (window.localStorage.getItem('auth')) dispatch(loginAc())
-	// }, [])
-	// const { auth } = useSelector(state => state.auth)
-	const auth = window.localStorage.getItem('auth')
+const RequireAuth = () => {
+	const { auth } = useSelector(state => state.auth)
 
-	if (!auth) {
-		return <Navigate to='/' />
-	}
-
-	return children
+	return auth ? <HotelSearchPage /> : <AuthPage />
 }
 
 export default RequireAuth
