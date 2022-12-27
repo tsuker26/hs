@@ -1,12 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import AuthPage from '../pages/AuthPage'
-import HotelSearchPage from '../pages/HotelSearchPage'
+import { Navigate } from 'react-router-dom'
 
-const RequireAuth = () => {
+const RequireAuth = ({ children }) => {
 	const { auth } = useSelector(state => state.auth)
 
-	return auth ? <HotelSearchPage /> : <AuthPage />
+	return auth ? children : <Navigate to={'/login'} />
 }
 
 export default RequireAuth
