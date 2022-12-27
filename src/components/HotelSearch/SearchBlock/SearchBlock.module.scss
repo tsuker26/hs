@@ -1,21 +1,24 @@
 .search_block {
 	grid-area: A;
 	max-width: 360px;
-	.date {
-		margin-top: 16px;
-	}
+	.input {
+		display: block;
+		&.date {
+			margin-top: 16px;
+		}
 
-	.count_day {
-		margin-top: 20px;
+		&.count_day {
+			margin-top: 20px;
+		}
+		.label {
+			font-weight: 500;
+		}
 	}
 
 	.btn {
 		margin-top: 32px;
 	}
 
-	label {
-		font-weight: 500;
-	}
 	@media (max-width: 767px) {
 		max-width: 767px;
 	}

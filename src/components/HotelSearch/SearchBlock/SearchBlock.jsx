@@ -48,7 +48,7 @@ const SearchBlock = () => {
 					handleSubmit,
 				}) => (
 					<form onSubmit={handleSubmit}>
-						<div>
+						<div className={styles.input}>
 							<MyInput
 								type='text'
 								name='location'
@@ -61,7 +61,7 @@ const SearchBlock = () => {
 								errorMessage={errors.location}
 							/>
 						</div>
-						<div className={styles.date}>
+						<div className={`${styles.date} ${styles.input}`}>
 							<MyInput
 								type='date'
 								name='date'
@@ -74,7 +74,7 @@ const SearchBlock = () => {
 								errorMessage={errors.date}
 							/>
 						</div>
-						<div className={styles.count_day}>
+						<div className={`${styles.count_day} ${styles.input}`}>
 							<MyInput
 								type='text'
 								name='countDay'
