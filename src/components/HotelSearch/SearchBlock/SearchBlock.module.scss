@@ -1,10 +1,11 @@
 .search_block {
 	grid-area: A;
 	max-width: 360px;
+
 	.input {
-		display: block;
 		&.date {
 			margin-top: 16px;
+			width: 100%;
 		}
 
 		&.count_day {
