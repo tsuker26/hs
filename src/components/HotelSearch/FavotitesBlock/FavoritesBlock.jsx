@@ -10,13 +10,7 @@ const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { sortName, sortBy } = useSelector(state => state?.sort)
 	const { active } = useSelector(state => state?.modal)
 
-	const hotels = useFavoritesHotels(
-		favoritesHotelsDate,
-		sortName,
-		sortBy,
-		dateFormat,
-		HotelEl
-	)
+	const hotels = useFavoritesHotels(favoritesHotelsDate, sortName, sortBy)
 
 	return (
 		<div
@@ -30,7 +24,16 @@ const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 			{hotels?.length ? (
 				<>
 					<MySelect sortItems={sortItems} />
-					<div className={styles.favorites}>{hotels}</div>
+					<div className={styles.favorites}>
+						{hotels.map(hotel => (
+							<HotelEl
+								key={hotel.hotelId}
+								hotel={hotel}
+								dateFormat={dateFormat}
+								allHotels={false}
+							/>
+						))}
+					</div>
 				</>
 			) : (
 				<h1 style={{ marginTop: '20px' }}>У вас нет избранных отелей</h1>

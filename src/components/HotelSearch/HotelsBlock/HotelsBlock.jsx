@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import styles from './HotelsBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import arrow from '../../../assests/arrow.png'
@@ -12,17 +11,6 @@ const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { allHotels, carouselImg } = useSelector(state => state?.hotels)
 	const { location } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
-
-	const hotelsMemo = useMemo(() => {
-		return allHotels.map(hotel => (
-			<HotelEl
-				key={hotel.hotelId}
-				allHotels={true}
-				hotel={hotel}
-				dateFormat={dateFormat}
-			/>
-		))
-	}, [allHotels, dateFormat])
 	return (
 		<div className={`${styles.hotels_block} ${s.block}`}>
 			<div className={styles.info}>
@@ -63,7 +51,16 @@ const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
 					/>
 				</p>
 			</div>
-			<div className={styles.hotels_items}>{hotelsMemo}</div>
+			<div className={styles.hotels_items}>
+				{allHotels.map(hotel => (
+					<HotelEl
+						key={hotel.hotelId}
+						allHotels={true}
+						hotel={hotel}
+						dateFormat={dateFormat}
+					/>
+				))}
+			</div>
 		</div>
 	)
 }
