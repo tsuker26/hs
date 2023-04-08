@@ -7,15 +7,16 @@ import {
 	removeFavoritesAC,
 } from '../../redux/reducers/hotelsReducer'
 import Stars from './Stars'
+import { dateFormatCreate } from '../../utils/date'
 
-const HotelEl = ({ hotel, allHotels, dateFormat }) => {
+const HotelEl = ({ hotel, allHotels }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
-	const { countDay } = useSelector(state => state?.search)
+	const { countDay, date } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
+	const dateFormat = dateFormatCreate(date)
 	const favorite = favoritesHotels
 		.filter(f => f.hotelId === hotel.hotelId)
 		.find(f => f.date === dateFormat)
-
 	const addRemoveHandler = (hotel, dateFormat, favorite) => {
 		if (favorite) {
 			dispatch(removeFavoritesAC(favorite.favoriteId))

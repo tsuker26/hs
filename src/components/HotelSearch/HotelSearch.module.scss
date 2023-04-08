@@ -17,6 +17,9 @@
 		border-radius: 16px;
 		background-color: #ffff;
 		padding: 32px;
+		.favorite_head{
+			text-align: start;
+		}
 	}
 	@media (max-width: 992px) {
 		grid-template-columns: auto auto;
