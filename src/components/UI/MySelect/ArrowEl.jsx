@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styles from './MySelect.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSortByAc } from '../../../redux/reducers/sortReducer'
 
-const ArrowEl = memo(({ sortByItem, sortItem }) => {
+const ArrowEl =({ sortByItem, sortItem }) => {
 	const { sortName, sortBy } = useSelector(state => state.sort)
 	const dispatch = useDispatch()
 	return (
@@ -55,6 +55,6 @@ const ArrowEl = memo(({ sortByItem, sortItem }) => {
 			)}
 		</>
 	)
-})
+}
 
 export default ArrowEl

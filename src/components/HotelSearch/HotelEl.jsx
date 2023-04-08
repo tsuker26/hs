@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styles from './HotelSearch.module.scss'
 import house from '../../assests/house.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import {
 } from '../../redux/reducers/hotelsReducer'
 import Stars from './Stars'
 
-const HotelEl = memo(({ hotel, allHotels, dateFormat }) => {
+const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { countDay } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
@@ -46,9 +46,7 @@ const HotelEl = memo(({ hotel, allHotels, dateFormat }) => {
 				<div className={styles.name}>
 					<h2>{hotel.hotelName}</h2>
 					<svg
-						className={
-							favorite && favorite.date === dateFormat ? styles.active : ''
-						}
+						className={favorite?.date === dateFormat ? styles.active : ''}
 						onClick={() => addRemoveHandler(hotel, dateFormat, favorite)}
 						width='21'
 						height='18'
@@ -91,6 +89,6 @@ const HotelEl = memo(({ hotel, allHotels, dateFormat }) => {
 			</div>
 		</div>
 	)
-})
+}
 
 export default HotelEl

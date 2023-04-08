@@ -9,7 +9,10 @@ export const validationsSchema = schema => {
 				.required('Обязательное поле'),
 			password: yup
 				.string()
-				.matches(/(?=.*[a-z0-9])/, 'Не должен содержать кириллицу')
+				.matches(
+					/(?:\s|^)[A-Za-z0-9\-\.\_]+(?:\s|$)/,
+					'Не должен содержать кириллицу'
+				)
 				.min(8, 'Минимум 8 символов')
 				.required('Обязательное поле'),
 		})

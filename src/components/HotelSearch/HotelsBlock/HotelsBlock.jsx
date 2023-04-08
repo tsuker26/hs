@@ -11,6 +11,7 @@ const HotelsBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { allHotels, carouselImg } = useSelector(state => state?.hotels)
 	const { location } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
+
 	return (
 		<div className={`${styles.hotels_block} ${s.block}`}>
 			<div className={styles.info}>

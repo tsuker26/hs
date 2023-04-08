@@ -9,7 +9,6 @@ import HotelEl from '../HotelEl'
 const FavoritesBlock = ({ dateFormat, favoritesHotelsDate }) => {
 	const { sortName, sortBy } = useSelector(state => state?.sort)
 	const { active } = useSelector(state => state?.modal)
-
 	const hotels = useFavoritesHotels(favoritesHotelsDate, sortName, sortBy)
 
 	return (

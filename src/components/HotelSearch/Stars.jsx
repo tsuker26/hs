@@ -9,17 +9,21 @@ const Stars = ({ stars }) => {
 	const starArrMap = starArr.map((_, i) => (
 		<img key={i} src={starFull} alt='' />
 	))
+
 	const noStarArrMap = noStarArr.map((_, i) => (
 		<img key={i} src={starNull} alt='' />
 	))
-	if (stars === 5) {
-		return <div className={styles.stars}>{starArrMap}</div>
-	}
 
 	return (
 		<div className={styles.stars}>
-			{starArrMap}
-			{noStarArrMap}
+			{stars === 5 ? (
+				<div className={styles.stars}>{starArrMap}</div>
+			) : (
+				<>
+					{starArrMap}
+					{noStarArrMap}
+				</>
+			)}
 		</div>
 	)
 }
