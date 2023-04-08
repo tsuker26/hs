@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './HotelSearch.module.scss'
 import house from '../../assests/house.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import {
 } from '../../redux/reducers/hotelsReducer'
 import Stars from './Stars'
 
-const HotelEl = ({ hotel, allHotels, dateFormat }) => {
+const HotelEl = memo(({ hotel, allHotels, dateFormat }) => {
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const { countDay } = useSelector(state => state?.search)
 	const dispatch = useDispatch()
@@ -91,6 +91,6 @@ const HotelEl = ({ hotel, allHotels, dateFormat }) => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default HotelEl
