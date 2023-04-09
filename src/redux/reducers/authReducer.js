@@ -1,19 +1,17 @@
-const authToken = window.localStorage.getItem('auth')
+const authToken = localStorage.getItem('isAuth')
 const defaultState = {
-	auth: !!authToken,
+	isAuth: !!authToken,
 }
-const LOGIN = 'LOGIN'
-const LOG_OUT = 'LOG_OUT'
 
-export default function authReducer(state = defaultState, action) {
-	switch (action.type) {
-		case LOGIN:
-			return { ...state, auth: true }
-		case LOG_OUT:
-			return { ...state, auth: false }
+const IS_AUTH = 'IS_AUTH'
+
+export default function authReducer(state = defaultState, { type, payload }) {
+	switch (type) {
+		case IS_AUTH:
+			return { ...state, isAuth: payload }
 		default:
 			return state
 	}
 }
-export const loginAc = () => ({ type: LOGIN })
-export const logOutAc = () => ({ type: LOG_OUT })
+
+export const isAuthAc = payload => ({ type: IS_AUTH, payload })

@@ -1,4 +1,4 @@
-export const quickSort = (array, filterName) => {
+export const quickSort = (array, sortName) => {
 	if (array.length <= 1) {
 		return array
 	}
@@ -10,15 +10,15 @@ export const quickSort = (array, filterName) => {
 		if (i === middleIndex) {
 			return
 		}
-		if (el[filterName] < middleEl[filterName]) {
+		if (el[sortName] < middleEl[sortName]) {
 			less.push(el)
 		} else {
 			greater.push(el)
 		}
 	})
 	return [
-		...quickSort(less, filterName),
+		...quickSort(less, sortName),
 		middleEl,
-		...quickSort(greater, filterName),
+		...quickSort(greater, sortName),
 	]
 }

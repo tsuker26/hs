@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import styles from './AuthForm.module.scss'
 import MyInput from '../UI/Input/Input'
 import MyButton from '../UI/Button/Button'
-import { loginAc } from '../../redux/reducers/authReducer'
+import { isAuthAc } from '../../redux/reducers/authReducer'
 import { validationsSchema } from '../../utils/validationSchemas'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,8 +17,8 @@ const AuthForm = () => {
 			initialValues: { email: '', password: '' },
 			validationSchema: validate,
 			onSubmit: () => {
-				window.localStorage.setItem('auth', 'true')
-				dispatch(loginAc())
+				localStorage.setItem('isAuth', 'true')
+				dispatch(isAuthAc(true))
 				navigate('/')
 			},
 		})
