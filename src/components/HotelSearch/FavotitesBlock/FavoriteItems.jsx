@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Select from '../../UI/Select/Select'
 import { sortItems } from '../../../data'
 import styles from './FavoritesBlock.module.scss'

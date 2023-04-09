@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './HotelsBlock.module.scss'
 import arrow from '../../../assests/arrow.png'
 import { useSelector } from 'react-redux'

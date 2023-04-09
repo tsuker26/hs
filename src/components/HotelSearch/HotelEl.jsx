@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './HotelSearch.module.scss'
 import house from '../../assests/house.png'
 import { useDispatch, useSelector } from 'react-redux'

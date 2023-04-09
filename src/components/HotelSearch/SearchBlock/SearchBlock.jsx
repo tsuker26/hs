@@ -1,6 +1,4 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import styles from './SearchBlock.module.scss'
 import s from '../HotelSearch.module.scss'
 import MyInput from '../../UI/Input/Input'

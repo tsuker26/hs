@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './HotelsBlock.module.scss'
 import HotelEl from '../HotelEl'
 import { useSelector } from 'react-redux'

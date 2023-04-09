@@ -1,11 +1,10 @@
-import React from 'react'
+import { useEffect } from 'react'
 import styles from './HotelSearch.module.scss'
 import FavoritesBlock from './FavotitesBlock/FavoritesBlock'
 import SearchBlock from './SearchBlock/SearchBlock'
 import HotelsBlock from './HotelsBlock/HotelsBlock'
 import { useDispatch, useSelector } from 'react-redux'
 import { dateOutCalc } from '../../utils/date'
-import { useEffect } from 'react'
 import { getHotelsAc } from '../../redux/reducers/hotelsReducer'
 
 const HotelSearch = () => {
