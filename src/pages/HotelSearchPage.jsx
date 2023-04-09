@@ -4,7 +4,7 @@ import Header from '../components/Header/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { getHotelsAc } from '../redux/reducers/hotelsReducer'
 import { dateOutCalc } from '../utils/date'
-import MyModal from '../components/UI/MyModal/MyModal'
+import Modal from '../components/UI/Modal/Modal'
 
 const HotelSearchPage = () => {
 	const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const HotelSearchPage = () => {
 		<div className={'hotel_search_page'}>
 			<Header />
 			<HotelSearch />
-			<MyModal>{body}</MyModal>
+			<Modal>{body}</Modal>
 		</div>
 	)
 }

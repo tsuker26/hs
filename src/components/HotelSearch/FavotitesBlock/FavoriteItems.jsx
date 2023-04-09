@@ -1,5 +1,5 @@
-import React from 'react'
-import MySelect from '../../UI/MySelect/MySelect'
+import React, { useEffect } from 'react'
+import Select from '../../UI/Select/Select'
 import { sortItems } from '../../../data'
 import styles from './FavoritesBlock.module.scss'
 import HotelEl from '../HotelEl'
@@ -16,12 +16,14 @@ const FavoriteItems = () => {
 		hotel => hotel.date === dateFormat
 	)
 	const hotels = useFavoritesHotels(favoritesHotelsDate, sortName, sortBy)
-
+	useEffect(() => {
+		localStorage.setItem('favoriteHotels', JSON.stringify(favoritesHotels))
+	}, [favoritesHotels])
 	return (
 		<>
 			{hotels?.length ? (
 				<>
-					<MySelect sortItems={sortItems} />
+					<Select sortItems={sortItems} />
 					<div className={styles.favorites}>
 						{hotels.map(hotel => (
 							<HotelEl key={hotel.hotelId} hotel={hotel} allHotels={false} />

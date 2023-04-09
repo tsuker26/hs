@@ -1,9 +1,15 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 import { getHotels } from '../../api'
-import { GET_HOTELS, setHotelsAc } from '../reducers/hotelsReducer'
+import {
+	GET_HOTELS,
+	setHotelsAc,
+	setIsErrorAC,
+	setIsLoadingAC,
+} from '../reducers/hotelsReducer'
 
 function* hotelsWorker({ payload }) {
 	try {
+		yield put(setIsLoadingAC(true))
 		const hotels = yield call(
 			getHotels,
 			payload.location,
@@ -11,8 +17,10 @@ function* hotelsWorker({ payload }) {
 			payload.dateOut
 		)
 		yield put(setHotelsAc(hotels))
+		yield put(setIsLoadingAC(false))
 	} catch (e) {
-		console.log(e)
+		yield put(setIsErrorAC('Не удалось загрузить отели'))
+		yield put(setIsLoadingAC(false))
 	}
 }
 

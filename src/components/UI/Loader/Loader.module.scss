@@ -1,0 +1,32 @@
+@import 'src/styles/variables';
+.loader_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .loader {
+    border: 5px dashed $text-color;
+    border-radius: 50%;
+    animation: rotate 2s infinite linear;
+  }
+
+  .text {
+    position: absolute;
+    span{
+      font-size: 22px;
+      font-weight: 500;
+      color:$text-color;
+    }
+  }
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -78,7 +78,12 @@
 		margin-top: 16px;
 		height: 563px;
 		overflow-y: scroll;
-
+		.hotels_error{
+			margin-top: 50px;
+			text-align: center;
+			font-size: 20px;
+			color: #eb1717;
+		}
 		&::-webkit-scrollbar {
 			width: 2px;
 			background-color: #e7e7e7;

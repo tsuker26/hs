@@ -1,7 +1,7 @@
 import styles from './MySelect.module.scss'
 import SelectEl from './SelectEl'
 
-const MySelect = ({ sortItems }) => {
+const Select = ({ sortItems }) => {
 	return (
 		<div className={styles.sort}>
 			{sortItems.map(sort => (
@@ -11,4 +11,4 @@ const MySelect = ({ sortItems }) => {
 	)
 }
 
-export default MySelect
+export default Select

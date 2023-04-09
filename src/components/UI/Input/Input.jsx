@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './MyInput.module.scss'
+import styles from './Input.module.scss'
 
-const MyInput = ({
+const Input = ({
 	name,
 	type,
 	label,
@@ -39,4 +39,4 @@ const MyInput = ({
 	)
 }
 
-export default MyInput
+export default Input

@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './MyModal.module.scss'
+import styles from './Modal.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { setModalAc } from '../../../redux/reducers/modalReducer'
 
-const MyModal = ({ children }) => {
+const Modal = ({ children }) => {
 	const { active } = useSelector(state => state.modal)
 	const dispatch = useDispatch()
 	return (
@@ -41,4 +41,4 @@ const MyModal = ({ children }) => {
 	)
 }
 
-export default MyModal
+export default Modal
