@@ -8,7 +8,7 @@ const Header = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const logOut = () => {
-		dispatch(isAuthAc(true))
+		dispatch(isAuthAc(false))
 		localStorage.removeItem('isAuth')
 		navigate('/login')
 	}
