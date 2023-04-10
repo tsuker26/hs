@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, legacy_createStore as createStore } from 'redux'
 import createSagaMiddleWare from 'redux-saga'
 import reducers from './reducers'
 import rootSaga from './sagas'
