@@ -1,12 +1,26 @@
 import { useMemo } from 'react'
 import { quickSort } from '../utils/quickSort'
 
-export const useFavoritesHotels = (favoritesHotels, sortName, sortBy) => {
+const useFavoritesHotelsFilterDate = (favoritesHotels, dateFormat) => {
+	return useMemo(() => {
+		return favoritesHotels.filter(hotel => hotel.date === dateFormat)
+	}, [favoritesHotels, dateFormat])
+}
+export const useFavoritesHotels = (
+	favoritesHotels,
+	sortName,
+	sortBy,
+	dateFormat
+) => {
+	const favoriteHotelsFilterDate = useFavoritesHotelsFilterDate(
+		favoritesHotels,
+		dateFormat
+	)
 	return useMemo(() => {
 		if (sortBy === 'ASC') {
-			return quickSort(favoritesHotels, sortName)
+			return quickSort(favoriteHotelsFilterDate, sortName)
 		} else {
-			return quickSort(favoritesHotels, sortName).reverse()
+			return quickSort(favoriteHotelsFilterDate, sortName).reverse()
 		}
-	}, [favoritesHotels, sortName, sortBy])
+	}, [favoriteHotelsFilterDate, sortName, sortBy])
 }

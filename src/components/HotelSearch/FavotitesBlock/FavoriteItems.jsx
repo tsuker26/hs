@@ -12,10 +12,12 @@ const FavoriteItems = () => {
 	const { date } = useSelector(state => state?.search)
 	const { favoritesHotels } = useSelector(state => state?.hotels)
 	const dateFormat = dateFormatCreate(date)
-	const favoritesHotelsDate = favoritesHotels.filter(
-		hotel => hotel.date === dateFormat
+	const hotels = useFavoritesHotels(
+		favoritesHotels,
+		sortName,
+		sortBy,
+		dateFormat
 	)
-	const hotels = useFavoritesHotels(favoritesHotelsDate, sortName, sortBy)
 	useEffect(() => {
 		localStorage.setItem('favoriteHotels', JSON.stringify(favoritesHotels))
 	}, [favoritesHotels])
